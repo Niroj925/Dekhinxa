@@ -1,0 +1,462 @@
+.dashboardChild {
+    position: absolute;
+    width: 97.89%;
+    top: 7.63rem;
+    right: 1.02%;
+    left: 1.09%;
+    background-color: #8c8a8a;
+    height: 0.13rem;
+}
+
+ .frameChild {
+    position: relative;
+    border-radius: 50%;
+    background-color: #7a8182;
+    width: 4.69rem;
+    height: 4.69rem;
+    z-index: 0;
+}
+
+.iconPerson2 {
+    position: absolute;
+    margin: 0 !important;
+    height: 60%;
+    width: 60%;
+    top: 16%;
+    right: 21.33%;
+    bottom: 24%;
+    left: 18.67%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    z-index: 1;
+}
+
+.ellipseParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.63rem;
+}
+
+.connectedFriend {
+    width: 4.69rem;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: flex-start;
+}
+.nirojThapa {
+    position: relative;
+}
+
+
+.connectedFriendParent {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Change this to move content to the right */
+    justify-content: flex-start; /* Keep it at the top */
+    gap: 0.56rem;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #fff;
+    font-family: Inter;
+    margin-top: 10px; 
+    margin-left: -15px;
+}
+
+
+
+.vectorIcon4 {
+    position: relative;
+    width: 5.02rem;
+    height: 4.01rem;
+    cursor: pointer;
+}
+.activeIcon {
+    color: rgba(250, 30, 96, 0.74); 
+  }
+.vectorParent {
+    position: absolute;
+    width: 45.22%;
+    top: 1.63rem;
+    right: 21.28%;
+    left: 29.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.maincontainer {
+    position: absolute;
+    top: 7.75rem;
+    left: 21.06rem;
+    width: 63.19rem;
+    height: 56.25rem;
+    overflow: hidden;
+}
+.iconMenu1 {
+    position: absolute;
+    height: 4.96%;
+    top: 4.59%;
+    bottom: 90.45%;
+    left: 4.01rem;
+    max-height: 100%;
+    width: 2.5rem;
+}
+.cda86444f0a972baee3b78e32fRemIcon {
+    position: absolute;
+    top: 2.38rem;
+    left: 2.19rem;
+    width: 4.17rem;
+    height: 3.95rem;
+    object-fit: cover;
+}
+.logOut {
+    position: relative;
+    display: inline-block;
+    width: 6.56rem;
+    flex-shrink: 0;
+}
+.iconAccountLogout1 {
+    position: relative;
+    width: 2.5rem;
+    height: 2.05rem;
+}
+.logOutParent {
+    position: absolute;
+    top: 3.38rem;
+    left: 8.75rem;
+    width: 7.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.67rem;
+}
+.sidebarChild {
+    position: absolute;
+    top: 7.63rem;
+    left: 0.19rem;
+    background-color: #8c8a8a;
+    width: 21.69rem;
+    height: 0.13rem;
+}
+.frameItem {
+    position: relative;
+    border-radius: 50%;
+    background-color: #7a8182;
+    width: 5.55rem;
+    height: 5.55rem;
+    z-index: 0;
+}
+.ellipseGroup {
+    height: 5.55rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.56rem;
+}
+.user {
+    position: absolute;
+    top: 10.94rem;
+    left: 6.38rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.28rem;
+}
+.vectorIcon7 {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.about {
+    position: relative;
+    font-weight: 600;
+}
+.vectorGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2.11rem;
+}
+.frameInner {
+    position: relative;
+    background-color: #8c8a8a;
+    width: 21.66rem;
+    height: 0.17rem;
+}
+.frameGroup {
+    position: absolute;
+    top: 18.77rem;
+    left: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.11rem;
+}
+.iconCog1 {
+    position: absolute;
+    height: 74.63%;
+    width: 12.72%;
+    top: 0%;
+    right: 62.09%;
+    bottom: 25.37%;
+    left: 25.19%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.setting {
+    position: absolute;
+    top: 0.56rem;
+    left: 9.66rem;
+    font-weight: 600;
+}
+.iconCogParent {
+    position: absolute;
+    top: 9.16rem;
+    left: 0.11rem;
+    width: 21.83rem;
+    height: 3.72rem;
+}
+.rectangleDiv {
+    position: absolute;
+    top: 12.88rem;
+    left: 0.13rem;
+    background-color: #8c8a8a;
+    width: 21.66rem;
+    height: 0.17rem;
+}
+.frameChild1 {
+    position: absolute;
+    top: 3.44rem;
+    left: 0rem;
+    background-color: #8c8a8a;
+    width: 21.66rem;
+    height: 0.17rem;
+}
+.addFriends {
+    position: absolute;
+    top: 0.22rem;
+    left: 9.66rem;
+    font-weight: 600;
+}
+.vectorIcon8 {
+    position: absolute;
+    height: 61.54%;
+    width: 10.26%;
+    top: 0%;
+    right: 64.36%;
+    bottom: 38.46%;
+    left: 25.38%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.rectangleParent {
+    position: absolute;
+    top: 0rem;
+    left: 0.11rem;
+    width: 21.66rem;
+    height: 3.61rem;
+}
+.rectangleGroup {
+    position: absolute;
+    top: 13.94rem;
+    left: 0.11rem;
+    width: 21.66rem;
+    height: 3.61rem;
+}
+.frameChild3 {
+    position: absolute;
+    top: 3.44rem;
+    left: 0rem;
+    background-color: #8c8a8a;
+    width: 21.66rem;
+    height: 0.13rem;
+}
+.details {
+    position: absolute;
+    top: 0rem;
+    left: 9.66rem;
+    font-weight: 600;
+}
+.vectorIcon10 {
+    position: absolute;
+    height: 55.38%;
+    width: 12.82%;
+    top: 9.23%;
+    right: 61.79%;
+    bottom: 35.38%;
+    left: 25.38%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.rectangleContainer {
+    position: absolute;
+    top: 4.72rem;
+    left: 0.11rem;
+    width: 21.66rem;
+    height: 3.61rem;
+}
+.frameParent {
+    position: absolute;
+    top: 23.06rem;
+    left: 0.19rem;
+    width: 21.69rem;
+    height: 22.56rem;
+    font-size: 1.67rem;
+}
+.sidebarItem {
+    position: absolute;
+    top: 19.63rem;
+    left: 0.25rem;
+    background-color: #8c8a8a;
+    width: 21.69rem;
+    height: 0.19rem;
+}
+.sidebar {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #1e4b55;
+    width: 21rem;
+    height: 64rem;
+    overflow: hidden;
+}
+.sidebarcomponent {
+    position: absolute;
+    top: 0rem;
+    left: 0.06rem;
+    width: 21rem;
+    height: 64rem;
+    overflow: hidden;
+    font-size: 1.39rem;
+}
+.dashboard {
+    position: relative;
+    background-color: rgba(84, 95, 96, 0.49);
+    width: 100%;
+    height: 64rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+
+@media(max-width:650px){
+    .sidebarcomponent{
+        display: none;
+    }
+    .sidebarOpen {
+        display: block;
+      }
+      
+      .sidebarClosed {
+        display: none;
+      }
+
+    .frameChild {
+        position: relative;
+        border-radius: 50%;
+        background-color: #7a8182;
+        width: 4.69rem;
+        height: 4.69rem;
+        z-index: 0;
+  }
+  .iconPerson1 {
+        position: absolute;
+        margin: 0 !important;
+        height: 60%;
+        width: 60%;
+        top: 16%;
+        right: 21.33%;
+        bottom: 24%;
+        left: 18.67%;
+        max-width: 100%;
+        overflow: hidden;
+        max-height: 100%;
+        z-index: 1;
+  }
+  .ellipseParent {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        gap: 0.63rem;
+  }
+  .connectedFriend {
+        width: 4.69rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+  }
+  .nirojThapa {
+        position: relative;
+  }
+  .connectedFriendParent {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: flex-start; 
+    gap: 0.56rem;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #fff;
+    font-family: Inter;
+    margin-top: 10px; 
+    margin-left: -15px;
+}
+  
+  
+.maincontainer {
+    position: absolute;
+    top: 7.75rem;
+    left: 0.06rem;
+    width: 100%;
+    height: 56.25rem;
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* If you want to center vertically */
+    justify-content: center;
+    align-items: center;
+  }
+  .vectorIcon4 {
+    position: relative;
+    width: 3.75rem;
+    height: 2.751rem;
+}
+.vectorParent {
+    position: absolute;
+    width: 45.22%;
+    top: 2.63rem;
+    right: 21.28%;
+    left: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.nirojThapa {
+    position: relative;
+    font-size: medium;
+}
+}

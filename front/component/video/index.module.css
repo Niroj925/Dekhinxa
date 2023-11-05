@@ -1,0 +1,170 @@
+.frameChild {
+    position: relative;
+    border-radius: 50%;
+    background-color: #7a8182;
+    width: 4.69rem;
+    height: 4.69rem;
+    z-index: 0;
+}
+.iconPerson5 {
+    position: absolute;
+    margin: 0 !important;
+    top: calc(50% - 25.5px);
+    left: calc(50% - 23.5px);
+    width: 2.81rem;
+    height: 2.81rem;
+    z-index: 1;
+}
+.ellipseParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.63rem;
+}
+.frameWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.nirojThapa {
+    position: relative;
+}
+.iconVideo5 {
+    position: relative;
+    width: 4.5rem;
+    height: 3.34rem;
+    color: rgba(250, 30, 96, 0.74);
+}
+.frameParent {
+    border-radius: 20px;
+    background-color: rgba(120, 139, 157, 0.49);
+    height: 5.63rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.56rem 0.81rem;
+    box-sizing: border-box;
+    gap: 2.88rem;
+}
+.friends {
+    position: absolute;
+    top: 2.19rem;
+    left: 3.88rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.63rem;
+}
+.friendsContainer2 {
+    position: absolute;
+    top: 6.38rem;
+    left: calc(50% - 273px);
+    background-color: rgba(255, 255, 255, 0.04);
+    width: 34.06rem;
+    height: 100%;
+    overflow: hidden;
+}
+.videoCall {
+    position: relative;
+    background-color: rgba(84, 95, 96, 0.48);
+    width: 100%;
+    height: 55.75rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.88rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+
+@media(max-width:650px){
+    .frameChild {
+        position: relative;
+        border-radius: 50%;
+        background-color: #7a8182;
+        width: 3.25rem;
+        height: 3.25rem;
+        z-index: 0;
+  }
+  .iconPerson5 {
+        position: absolute;
+        margin: 0 !important;
+        top: calc(50% - 17.69px);
+        left: calc(50% - 16.31px);
+        width: 1.95rem;
+        height: 1.95rem;
+        z-index: 1;
+  }
+  .ellipseParent {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        gap: 0.43rem;
+  }
+  .frameWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+  }
+  .nirojThapa {
+        position: relative;
+  }
+  .iconVideo5 {
+        position: relative;
+        width: 2.6rem;
+        height: 1.63rem;
+        color: rgba(250, 30, 96, 0.74);
+  }
+  .frameParent {
+        border-radius: 13.88px;
+        background-color: rgba(120, 139, 157, 0.49);
+        height: 3.9rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.39rem 0.56rem;
+        box-sizing: border-box;
+        gap: 2rem;
+  }
+  .friends {
+        position: absolute;
+        top: 1.52rem;
+        left: 2.69rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1.82rem;
+  }
+  .friendsContainer2 {
+        position: absolute;
+        top: 2.75rem;
+        left: calc(50% - 189px);
+        background-color: rgba(255, 255, 255, 0.04);
+        width: 23.64rem;
+        height: 100%;
+        overflow: hidden;
+  }
+  .videoCall {
+        position: relative;
+        background-color: rgba(84, 95, 96, 0.48);
+        width: 100%;
+        height: 55.75rem;
+        overflow: hidden;
+        text-align: left;
+        font-size: 1.3rem;
+        color: #fff;
+        font-family: Inter;
+  }
+    
+}
+

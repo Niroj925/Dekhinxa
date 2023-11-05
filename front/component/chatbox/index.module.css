@@ -1,0 +1,356 @@
+.frameChild {
+    position: relative;
+    border-radius: 50%;
+    background-color: #7a8182;
+    width: 3.23rem;
+    height: 3.23rem;
+    z-index: 0;
+}
+.iconPerson4 {
+    position: absolute;
+    margin: 0 !important;
+    height: 60%;
+    width: 60%;
+    top: 16%;
+    right: 21.33%;
+    bottom: 24%;
+    left: 18.67%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    z-index: 1;
+}
+.ellipseParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.43rem;
+}
+.thisMessageIs8 {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    font-weight: 500;
+}
+.thisMessageIsJustForYouGWrapper {
+    border-radius: 20.66px;
+    background-color: #366761;
+    width: 23.93rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2.67rem;
+    box-sizing: border-box;
+}
+.frameParent {
+    position: absolute;
+    top: 0.56rem;
+    left: 2.63rem;
+    width: 28.13rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.99rem;
+}
+.frameGroup {
+    position: absolute;
+    top: 10.25rem;
+    left: 2.63rem;
+    width: 28.13rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.99rem;
+}
+.frameDiv {
+    position: absolute;
+    top: 19.94rem;
+    left: 2.63rem;
+    width: 28.13rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.99rem;
+}
+.frameParent1 {
+    position: absolute;
+    top: 29.63rem;
+    left: 3.25rem;
+    width: 28.13rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.99rem;
+}
+.thisMessageIsJustForYouGWrapper2 {
+    position: absolute;
+    top: 5.06rem;
+    left: 25rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: 22.41rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.99rem 1.98rem;
+    box-sizing: border-box;
+    font-size: 1.13rem;
+}
+.thisMessageIsJustForYouGWrapper3 {
+    position: absolute;
+    top: 15rem;
+    left: 25rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: 22.41rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.99rem 1.98rem;
+    box-sizing: border-box;
+    font-size: 1.13rem;
+}
+.thisMessageIsJustForYouGWrapper4 {
+    position: absolute;
+    top: 24.69rem;
+    left: 25rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: 22.41rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.99rem 1.98rem;
+    box-sizing: border-box;
+    font-size: 1.13rem;
+}
+.thisMessageIsJustForYouGWrapper5 {
+    position: absolute;
+    top: 34.38rem;
+    left: 25rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: 22.41rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.99rem 1.98rem;
+    box-sizing: border-box;
+    font-size: 1.13rem;
+}
+.msgbox {
+    position: absolute;
+    top: 1.44rem;
+    left: 7.81rem;
+    width: 49.25rem;
+    height: 52.88rem;
+    overflow: hidden;
+}
+.messageBox {
+    position: relative;
+    background-color: rgba(84, 95, 96, 0.48);
+    width: 100%;
+    height: 55.74rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.08rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+@media(max-width:650px){
+    .frameChild {
+        position: relative;
+        border-radius: 50%;
+        background-color: #7a8182;
+        width: 2.53rem;
+        height: 2.53rem;
+        z-index: 0;
+  }
+  .iconPerson4 {
+        position: absolute;
+        margin: 0 !important;
+        height: 60%;
+        width: 60%;
+        top: 16%;
+        right: 21.33%;
+        bottom: 24%;
+        left: 18.67%;
+        max-width: 100%;
+        overflow: hidden;
+        max-height: 100%;
+        z-index: 1;
+  }
+  .ellipseParent {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        gap: 0.34rem;
+  }
+  .thisMessageIs8 {
+        align-self: stretch;
+        flex: 1;
+        position: relative;
+        font-weight: 500;
+  }
+  .thisMessageIsJustForYouGWrapper {
+        border-radius: 16.19px;
+        background-color: #366761;
+        width: 18.76rem;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.74rem 2.09rem;
+        box-sizing: border-box;
+  }
+  .frameParent {
+        position: absolute;
+        top: 1.69rem;
+        left: 0.94rem;
+        width: 22.05rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.78rem;
+  }
+  .frameGroup {
+        position: absolute;
+        top: 9.28rem;
+        left: 0.94rem;
+        width: 22.05rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.78rem;
+  }
+  .frameDiv {
+        position: absolute;
+        top: 16.87rem;
+        left: 0.94rem;
+        width: 22.05rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.78rem;
+  }
+  .frameParent1 {
+        position: absolute;
+        top: 24.47rem;
+        left: 1.43rem;
+        width: 22.05rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.78rem;
+  }
+  .thisMessageIsJustForYouGWrapper2 {
+        position: absolute;
+        top: 5.44rem;
+        left: 9.5rem;
+        border-radius: 16.93px;
+        background-color: rgba(180, 59, 95, 0.74);
+        width: 17.56rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.78rem 1.55rem;
+        box-sizing: border-box;
+        font-size: 0.88rem;
+  }
+  .thisMessageIsJustForYouGWrapper3 {
+        position: absolute;
+        top: 13rem;
+        left: 9.5rem;
+        border-radius: 16.93px;
+        background-color: rgba(180, 59, 95, 0.74);
+        width: 17.56rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.78rem 1.55rem;
+        box-sizing: border-box;
+        font-size: 0.88rem;
+  }
+  .thisMessageIsJustForYouGWrapper4 {
+        position: absolute;
+        top: 20.63rem;
+        left: 9.5rem;
+        border-radius: 16.93px;
+        background-color: rgba(180, 59, 95, 0.74);
+        width: 17.56rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.78rem 1.55rem;
+        box-sizing: border-box;
+        font-size: 0.88rem;
+  }
+  .thisMessageIsJustForYouGWrapper5 {
+        position: absolute;
+        top: 28.19rem;
+        left: 9.5rem;
+        border-radius: 16.93px;
+        background-color: rgba(180, 59, 95, 0.74);
+        width: 17.56rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.78rem 1.55rem;
+        box-sizing: border-box;
+        font-size: 0.88rem;
+  }
+  .msgbox {
+        position: absolute;
+        top: 0rem;
+        left: calc(50% - 225px);
+        width: 28.13rem;
+        height: 56.5rem;
+        overflow: hidden;
+  }
+  .messageBox {
+        position: relative;
+        background-color: rgba(84, 95, 96, 0.48);
+        width: 100%;
+        height: 56.5rem;
+        overflow: hidden;
+        text-align: left;
+        font-size: 0.84rem;
+        color: #fff;
+        font-family: Inter;
+  }
+  
+}

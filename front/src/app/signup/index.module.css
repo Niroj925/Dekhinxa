@@ -1,0 +1,222 @@
+.cda86444f0a972baee3b78e32fRemIcon {
+    position: absolute;
+    top: 3.45rem;
+    left: 7.85rem;
+    width: 6.78rem;
+    height: 6.42rem;
+    object-fit: cover;
+}
+.signupChild {
+    position: relative;
+    border-radius: 14.13px;
+    background-color: rgba(18, 73, 85, 0.43);
+    box-shadow: 2.8252716064453125px 2.8252716064453125px 2.83px 2.83px rgba(24, 70, 70, 0.25) inset;
+    width: 25.52rem;
+    height: 31.83rem;
+    z-index: 0;
+}
+.signUp {
+    position: relative;
+    font-weight: 500;
+}
+.signUpWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+}
+.frameChild {
+    position: relative;
+    border-top: 1.9px solid #3fb1d4;
+    box-sizing: border-box;
+    width: 18.52rem;
+    height: 0.12rem;
+}
+.usernameWrapper {
+    border-radius: 31.66px;
+    background-color: rgba(255, 255, 255, 0.46);
+    width: 19.59rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 2.77rem;
+    box-sizing: border-box;
+}
+.createAccountWrapper {
+    border-radius: 31.66px;
+    background-color: rgba(14, 103, 108, 0.94);
+    width: 19.59rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 2.77rem;
+    box-sizing: border-box;
+}
+.frameGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.45rem;
+    font-size: 1.19rem;
+}
+.frameParent {
+    margin: 0 !important;
+    position: absolute;
+    top: 3.04rem;
+    left: 2.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.99rem;
+    z-index: 1;
+}
+.signup1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.44rem;
+    font-size: 1.78rem;
+}
+.createAnAccountParent {
+    position: absolute;
+    top: 12.97rem;
+    left: calc(50% - 203.65px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.91rem;
+}
+.signup {
+    position: relative;
+    background-color: rgba(52, 76, 78, 0.46);
+    width: 100%;
+    height: 60.88rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.82rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+@media(max-width:650px){
+    .cda86444f0a972baee3b78e32fRemIcon {
+        position: absolute;
+        top: 1.63rem;
+        left: 1.63rem;
+        width: 4.69rem;
+        height: 4.44rem;
+        object-fit: cover;
+  }
+  .signupChild {
+        position: relative;
+        border-radius: 13.76px;
+        background-color: rgba(18, 73, 85, 0.43);
+        box-shadow: 2.7515273094177246px 2.7515273094177246px 2.75px 2.75px rgba(24, 70, 70, 0.25) inset;
+        width: 24.85rem;
+        height: 31rem;
+        z-index: 0;
+  }
+  .signUp {
+        position: relative;
+        font-weight: 500;
+  }
+  .signUpWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.39rem;
+  }
+  .frameChild {
+        position: relative;
+        border-top: 1.8px solid #3fb1d4;
+        box-sizing: border-box;
+        width: 18.04rem;
+        height: 0.12rem;
+  }
+  .usernameWrapper {
+        border-radius: 30.83px;
+        background-color: rgba(255, 255, 255, 0.46);
+        width: 19.08rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.54rem 2.7rem;
+        box-sizing: border-box;
+  }
+  .createAccountWrapper {
+        border-radius: 30.83px;
+        background-color: rgba(14, 103, 108, 0.94);
+        width: 19.08rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.54rem 2.7rem;
+        box-sizing: border-box;
+  }
+  .frameGroup {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2.39rem;
+        font-size: 1.16rem;
+  }
+  .frameParent {
+        margin: 0 !important;
+        position: absolute;
+        top: 2.96rem;
+        left: 2.87rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.96rem;
+        z-index: 1;
+  }
+  .signup1 {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        gap: 0.43rem;
+        font-size: 1.73rem;
+  }
+  .createAnAccountParent {
+        position: absolute;
+        top: 10.25rem;
+        left: calc(50% - 198.5px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.88rem;
+  }
+  .signup {
+        position: relative;
+        background-color: rgba(52, 76, 78, 0.46);
+        width: 100%;
+        height: 64rem;
+        overflow: hidden;
+        text-align: left;
+        font-size: 1.77rem;
+        color: #fff;
+        font-family: Inter;
+  }
+    
+}

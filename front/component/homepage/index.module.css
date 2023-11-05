@@ -1,0 +1,228 @@
+.heroChild {
+    position: absolute;
+    top: 25.65rem;
+    left: -7.57rem;
+    border-radius: 50%;
+    background-color: #496d8e;
+    filter: blur(250px);
+    width: 103.09rem;
+    height: 13.13rem;
+}
+.heroItem {
+    position: absolute;
+    top: 43.42rem;
+    left: 57.03rem;
+    border-radius: 50%;
+    background-color: #7b2b6a;
+    filter: blur(250px);
+    width: 29.44rem;
+    height: 28.7rem;
+}
+.heroInner {
+    position: absolute;
+    top: 43.42rem;
+    left: -6.66rem;
+    border-radius: 50%;
+    background-color: #7b2b6a;
+    filter: blur(250px);
+    width: 26.51rem;
+    height: 28.7rem;
+}
+.cda86444f0a972baee3b78e32fRemIcon {
+    position: absolute;
+    top: 2rem;
+    left: 4.25rem;
+    width: 6.25rem;
+    height: 6.25rem;
+    object-fit: cover;
+}
+.signUp {
+    position: absolute;
+    top: 4.19rem;
+    right: 2.44rem;
+}
+.signUp:hover{
+    cursor: pointer;
+    color: #cb08fc;
+  }
+.connectFaceToFaceFrom1 {
+    position: absolute;
+    top: 11.19rem;
+    left: calc(50% - 311px);
+    font-size: 1.88rem;
+    display: inline-block;
+    width: 21.75rem;
+    height: 4.56rem;
+}
+.joinNow {
+    position: relative;
+}
+.vectorIcon1 {
+    position: relative;
+    width: 2.5rem;
+    height: 1.51rem;
+}
+.joinNowParent {
+    position: absolute;
+    top: 36.88rem;
+    left: calc(50% - 112px);
+    border-radius: 34.55px;
+    background-color: #825d8b;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1.12rem 1.17rem;
+    gap: 1.21rem;
+    font-size: 1.3rem;
+    
+}
+
+.joinNowParent:hover{
+    cursor: pointer;
+    background-color: #771191;
+}
+
+.experienceTheSimplicity1 {
+    position: absolute;
+    top: 22.44rem;
+    left: calc(50% - 463px);
+    font-weight: 500;
+    display: inline-block;
+    width: 31.25rem;
+    height: 8.56rem;
+}
+.e8fd538f7b37442682f466b683Icon {
+    position: absolute;
+    top: 15.75rem;
+    left: calc(50% + 112px);
+    width: 22.94rem;
+    height: 19.63rem;
+    object-fit: cover;
+}
+.hero {
+    position: relative;
+    background-color: rgba(52, 76, 78, 0.45);
+    width: 100%;
+    height: 62.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.56rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+
+@media (max-width: 640px) {
+    .heroChild {
+        position: absolute;
+        top: 26.25rem;
+        left: -7.75rem;
+        border-radius: 50%;
+        background-color: #496d8e;
+        filter: blur(250px);
+        width: 105.5rem;
+        height: 13.44rem;
+  }
+  .heroItem {
+        position: absolute;
+        top: 44.44rem;
+        left: 22.81rem;
+        border-radius: 50%;
+        background-color: #7b2b6a;
+        filter: blur(250px);
+        width: 30.13rem;
+        height: 29.38rem;
+  }
+  .heroInner {
+        position: absolute;
+        top: 44.44rem;
+        left: -6.81rem;
+        border-radius: 50%;
+        background-color: #7b2b6a;
+        filter: blur(250px);
+        width: 27.13rem;
+        height: 29.38rem;
+  }
+  .experienceTheSimplicity1 {
+        position: absolute;
+        top: 42.06rem;
+        left: calc(50% - 186.5px);
+        font-weight: 500;
+        display: inline-block;
+        width: 25.25rem;
+        height: 8.56rem;
+  }
+  .e8fd538f7b37442682f466b683Icon {
+        position: absolute;
+        top: 21rem;
+        left: calc(50% - 183.5px);
+        width: 22.94rem;
+        height: 19.63rem;
+        object-fit: cover;
+  }
+  .joinNow {
+        position: relative;
+  }
+  .vectorIcon1 {
+        position: relative;
+        width: 2.5rem;
+        height: 1.51rem;
+  }
+  .joinNowParent {
+        position: absolute;
+        top: 20.06rem;
+        left: calc(50% - 113.5px);
+        border-radius: 34.55px;
+        background-color: #825d8b;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 1.12rem 1.17rem;
+        gap: 1.21rem;
+        font-size: 1.3rem;
+  }
+
+  .connectFaceToFaceFrom1 {
+        position: absolute;
+        top: 13.13rem;
+        left: calc(50% - 164.5px);
+        font-size: 1.88rem;
+        display: inline-block;
+        width: 21.75rem;
+        height: 4.56rem;
+  }
+  .signUp {
+        position: absolute;
+        top: 3.25rem;
+        right: 1.56rem;
+  }
+
+  .signUp:hover{
+    color: #cb08fc;
+  }
+  .cda86444f0a972baee3b78e32fRemIcon {
+        position: absolute;
+        top: 1.88rem;
+        left: 2.13rem;
+        width: 4.69rem;
+        height: 4.69rem;
+        object-fit: cover;
+  }
+  .hero {
+        position: relative;
+        background-color: rgba(52, 76, 78, 0.45);
+        width: 100%;
+        height: 61rem;
+        overflow: hidden;
+        text-align: left;
+        font-size: 1.56rem;
+        color: #fff;
+        font-family: Inter;
+  }
+  
+  
+}

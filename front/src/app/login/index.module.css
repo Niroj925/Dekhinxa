@@ -1,0 +1,356 @@
+.cda86444f0a972baee3b78e32fRemIcon {
+    position: absolute;
+    top: 4.25rem;
+    left: 7rem;
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+.body1Icon {
+    position: absolute;
+    top: 11.82rem;
+    left: calc(50% - 497.5px);
+    width: 34.53rem;
+    height: 24.37rem;
+    object-fit: cover;
+}
+.signIn {
+    position: relative;
+    font-size: 1.77rem;
+}
+.welcomeBackPlease1 {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.user {
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    width: 3.31rem;
+    flex-shrink: 0;
+}
+.userWrapper {
+    border-radius: 21.21px;
+    background-color: #445c58;
+    width: 22.09rem;
+    height: 3.31rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.97rem 3.98rem;
+    box-sizing: border-box;
+}
+.password {
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    width: 8.35rem;
+    flex-shrink: 0;
+}
+.logIn {
+    position: relative;
+    font-weight: 500;
+}
+.logInWrapper {
+    border-radius: 21.21px;
+    background-color: #086857;
+    width: 22.09rem;
+    height: 3.31rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.97rem 3.98rem;
+    box-sizing: border-box;
+}
+.logInWrapper:hover{
+    cursor: pointer;
+    background-color: #01a587;
+}
+.signInParent {
+    width: 23.55rem;
+    height: 22.27rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.46rem;
+}
+.frameChild {
+    position: relative;
+    width: 6.94rem;
+    height: 0.25rem;
+}
+.frameItem {
+    position: relative;
+    width: 8.26rem;
+    height: 0.27rem;
+}
+.vectorParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 1.1rem;
+}
+.frameWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0.44rem;
+    font-size: 1.1rem;
+}
+
+.frameInner {
+    position: relative;
+    border-radius: 3.53px;
+    background-color: #e86060;
+    width: 20.37rem;
+    height: 3.31rem;
+    z-index: 0;
+}
+.newGoogleLogo497x500RemoveIcon1 {
+    position: absolute;
+    margin: 0 !important;
+    top: 0.88rem;
+    left: 15.6rem;
+    width: 1.77rem;
+    height: 1.78rem;
+    object-fit: cover;
+    z-index: 1;
+}
+.loginWithGoogle1 {
+    position: absolute;
+    margin: 0 !important;
+    top: 0.88rem;
+    left: 2.3rem;
+    font-weight: 500;
+    z-index: 2;
+}
+.rectangleParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.44rem;
+}
+.frameParent {
+    position: absolute;
+    top: 9.66rem;
+    left: calc(50% + 63.45px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.44rem;
+}
+.loginChild {
+    position: absolute;
+    top: 3.2rem;
+    left: -18.88rem;
+    border-radius: 50%;
+    background-color: rgba(12, 173, 194, 0.88);
+    filter: blur(250px);
+    width: 90rem;
+    height: 23.91rem;
+    transform:  rotate(43.39deg);
+    transform-origin: 0 0;
+}
+.login {
+    position: relative;
+    background-color: rgba(52, 76, 78, 0.45);
+    width: 100%;
+    height: 64rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.33rem;
+    color: #fff;
+    font-family: Inter;
+}
+
+
+
+@media (max-width:650px){
+    .cda86444f0a972baee3b78e32fRemIcon {
+        position: absolute;
+        top: 2.75rem;
+        left: 2.06rem;
+        width: 4.69rem;
+        height: 4.69rem;
+        object-fit: cover;
+  }
+  .loginChild {
+        position: absolute;
+        top: 23.2rem;
+        left: -18.88rem;
+        border-radius: 50%;
+        background-color: rgba(12, 173, 194, 0.88);;
+        filter: blur(350px);
+        width: 90rem;
+        height: 23.91rem;
+        transform:  rotate(43.39deg);
+        transform-origin: 0 0;
+  }
+  .signIn {
+        position: relative;
+        font-size: 1.77rem;
+  }
+  .welcomeBackPlease1 {
+        align-self: stretch;
+        flex: 1;
+        position: relative;
+        font-size: 1.1rem;
+        font-weight: 500;
+  }
+  .user {
+        position: relative;
+        font-weight: 500;
+        display: inline-block;
+        width: 3.31rem;
+        flex-shrink: 0;
+  }
+  .userWrapper {
+        border-radius: 21.21px;
+        background-color: #445c58;
+        width: 22.09rem;
+        height: 3.31rem;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.97rem 3.98rem;
+        box-sizing: border-box;
+  }
+  .password {
+        position: relative;
+        font-weight: 500;
+        display: inline-block;
+        width: 8.35rem;
+        flex-shrink: 0;
+  }
+  .logIn {
+        position: relative;
+        font-weight: 500;
+  }
+  .logInWrapper {
+        border-radius: 21.21px;
+        background-color: #086857;
+        width: 22.09rem;
+        height: 3.31rem;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0.97rem 3.98rem;
+        box-sizing: border-box;
+  }
+  .signInParent {
+        width: 23.55rem;
+        height: 22.27rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.46rem;
+  }
+  .frameChild {
+        position: relative;
+        width: 6.94rem;
+        height: 0.25rem;
+  }
+  .frameItem {
+        position: relative;
+        width: 8.26rem;
+        height: 0.27rem;
+  }
+  .vectorParent {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 1.1rem;
+  }
+  .frameWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0.44rem;
+        font-size: 1.1rem;
+  }
+  .frameInner {
+        position: relative;
+        border-radius: 3.53px;
+        background-color: #e86060;
+        width: 20.37rem;
+        height: 3.31rem;
+        z-index: 0;
+  }
+  .newGoogleLogo497x500RemoveIcon1 {
+        position: absolute;
+        margin: 0 !important;
+        top: 0.88rem;
+        left: 15.6rem;
+        width: 1.77rem;
+        height: 1.78rem;
+        object-fit: cover;
+        z-index: 1;
+  }
+  .loginWithGoogle1 {
+        position: absolute;
+        margin: 0 !important;
+        top: 0.88rem;
+        left: 2.3rem;
+        font-weight: 500;
+        z-index: 2;
+  }
+  .rectangleParent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        gap: 0.44rem;
+  }
+  .frameParent {
+        position: absolute;
+        top: 11.25rem;
+        left: calc(50% - 188px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.44rem;
+  }
+  .login {
+        position: relative;
+        background-color: rgba(52, 76, 78, 0.45);
+        width: 100%;
+        height: 64rem;
+        overflow: hidden;
+        text-align: left;
+        font-size: 1.33rem;
+        color: #fff;
+        font-family: Inter;
+  }
+  
+  
+  .body1Icon{
+    display: none;
+  }  
+  
+}
