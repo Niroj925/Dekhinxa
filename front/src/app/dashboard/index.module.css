@@ -67,6 +67,7 @@
     font-family: Inter;
     margin-top: 10px; 
     margin-left: -15px;
+    z-index: 0;
 }
 
 
@@ -124,19 +125,20 @@
 }
 .iconAccountLogout1 {
     position: relative;
-    width: 2.5rem;
-    height: 2.05rem;
+    size: 20px;
+    width: 5.5rem;
+    height: 5.05rem;
 }
 .logOutParent {
     position: absolute;
     top: 3.38rem;
-    left: 8.75rem;
-    width: 7.25rem;
+    left: 10.75rem;
+    width: 9.25rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.67rem;
+    /* gap: 0.67rem;  */
 }
 .sidebarChild {
     position: absolute;
@@ -177,10 +179,18 @@
     position: relative;
     width: 2.5rem;
     height: 2.5rem;
+    left: -3.5rem;
+   
 }
 .about {
-    position: relative;
+    position: absolute;
+    top: 0.56rem;
+    left: 9.66rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
 }
 .vectorGroup {
     display: flex;
@@ -216,12 +226,17 @@
     max-width: 100%;
     overflow: hidden;
     max-height: 100%;
+    
 }
 .setting {
     position: absolute;
     top: 0.56rem;
     left: 9.66rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
 }
 .iconCogParent {
     position: absolute;
@@ -250,7 +265,11 @@
     position: absolute;
     top: 0.22rem;
     left: 9.66rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
 }
 .vectorIcon8 {
     position: absolute;
@@ -290,7 +309,11 @@
     position: absolute;
     top: 0rem;
     left: 9.66rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
 }
 .vectorIcon10 {
     position: absolute;
@@ -313,7 +336,7 @@
 }
 .frameParent {
     position: absolute;
-    top: 23.06rem;
+    top: 21.6rem;
     left: 0.19rem;
     width: 21.69rem;
     height: 22.56rem;
@@ -357,6 +380,9 @@
     font-family: Inter;
 }
 
+.cross{
+    display: none;
+}
 
 @media(max-width:650px){
     .sidebarcomponent{
@@ -369,6 +395,13 @@
       .sidebarClosed {
         display: none;
       }
+
+      .cross{
+        display:block;
+        margin-left: 300px;
+        margin-top: 10px;
+
+    }
 
     .frameChild {
         position: relative;

@@ -91,13 +91,14 @@
     justify-content: flex-start;
     gap: 0.99rem;
 }
-.thisMessageIsJustForYouGWrapper2 {
-    position: absolute;
+.messageWrapper2 {
+    position: relative;
     top: 5.06rem;
     left: 25rem;
     border-radius: 21.6px;
     background-color: rgba(180, 59, 95, 0.74);
-    width: 22.41rem;
+    /* max-width: 22.41rem; */
+    max-width: 23rem;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -106,62 +107,17 @@
     padding: 0.99rem 1.98rem;
     box-sizing: border-box;
     font-size: 1.13rem;
+    margin-top: 1.2rem;
 }
-.thisMessageIsJustForYouGWrapper3 {
-    position: absolute;
-    top: 15rem;
-    left: 25rem;
-    border-radius: 21.6px;
-    background-color: rgba(180, 59, 95, 0.74);
-    width: 22.41rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.99rem 1.98rem;
-    box-sizing: border-box;
-    font-size: 1.13rem;
-}
-.thisMessageIsJustForYouGWrapper4 {
-    position: absolute;
-    top: 24.69rem;
-    left: 25rem;
-    border-radius: 21.6px;
-    background-color: rgba(180, 59, 95, 0.74);
-    width: 22.41rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.99rem 1.98rem;
-    box-sizing: border-box;
-    font-size: 1.13rem;
-}
-.thisMessageIsJustForYouGWrapper5 {
-    position: absolute;
-    top: 34.38rem;
-    left: 25rem;
-    border-radius: 21.6px;
-    background-color: rgba(180, 59, 95, 0.74);
-    width: 22.41rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.99rem 1.98rem;
-    box-sizing: border-box;
-    font-size: 1.13rem;
-}
+
 .msgbox {
-    position: absolute;
+    position: relative;
     top: 1.44rem;
     left: 7.81rem;
     width: 49.25rem;
-    height: 52.88rem;
-    overflow: hidden;
+    height: 23.00rem;
+    /* overflow: hidden; */
+    overflow-y: auto;
 }
 .messageBox {
     position: relative;
@@ -174,6 +130,60 @@
     color: #fff;
     font-family: Inter;
 }
+  .message {
+    position: relative;
+    font-weight: 500;
+}
+.messageWrapper {
+    align-self: stretch;
+    flex: 1;
+    border-radius: 15px;
+    /* background-color: rgba(255, 255, 255, 0.46); */
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.54rem 2.7rem;
+}
+.vectorIcon1 {
+    position: relative;
+    width: 2.7rem;
+    height: 2.14rem;
+    margin-left: -3rem;
+}
+.vectorIcon1:hover{
+    cursor: pointer;
+    color:#366761
+}
+.frameParent2 {
+    position: relative;
+    width: 50rem;
+    height: 3.44rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* gap: 1.31rem; */
+    text-align: left;
+    font-size: 1.16rem;
+    color: #000;
+    font-family: Inter;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+.messageInput {
+    width: 100%;
+    height: 2.79rem;
+    padding: 10px;
+    border:none;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+
+
 
 @media(max-width:650px){
     .frameChild {
@@ -184,27 +194,14 @@
         height: 2.53rem;
         z-index: 0;
   }
-  .iconPerson4 {
-        position: absolute;
-        margin: 0 !important;
-        height: 60%;
-        width: 60%;
-        top: 16%;
-        right: 21.33%;
-        bottom: 24%;
-        left: 18.67%;
-        max-width: 100%;
-        overflow: hidden;
-        max-height: 100%;
-        z-index: 1;
-  }
+ 
   .ellipseParent {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
-        position: relative;
-        gap: 0.34rem;
+        position: relative; 
+         gap: 0.34rem;
   }
   .thisMessageIs8 {
         align-self: stretch;
@@ -226,7 +223,7 @@
         box-sizing: border-box;
   }
   .frameParent {
-        position: absolute;
+        position: relative;
         top: 1.69rem;
         left: 0.94rem;
         width: 22.05rem;
@@ -234,7 +231,8 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
-        gap: 0.78rem;
+        /* gap: 0.78rem; */
+        z-index: 0;
   }
   .frameGroup {
         position: absolute;
@@ -269,77 +267,31 @@
         justify-content: flex-start;
         gap: 0.78rem;
   }
-  .thisMessageIsJustForYouGWrapper2 {
-        position: absolute;
-        top: 5.44rem;
-        left: 9.5rem;
-        border-radius: 16.93px;
-        background-color: rgba(180, 59, 95, 0.74);
-        width: 17.56rem;
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 0.78rem 1.55rem;
-        box-sizing: border-box;
-        font-size: 0.88rem;
-  }
-  .thisMessageIsJustForYouGWrapper3 {
-        position: absolute;
-        top: 13rem;
-        left: 9.5rem;
-        border-radius: 16.93px;
-        background-color: rgba(180, 59, 95, 0.74);
-        width: 17.56rem;
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 0.78rem 1.55rem;
-        box-sizing: border-box;
-        font-size: 0.88rem;
-  }
-  .thisMessageIsJustForYouGWrapper4 {
-        position: absolute;
-        top: 20.63rem;
-        left: 9.5rem;
-        border-radius: 16.93px;
-        background-color: rgba(180, 59, 95, 0.74);
-        width: 17.56rem;
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 0.78rem 1.55rem;
-        box-sizing: border-box;
-        font-size: 0.88rem;
-  }
-  .thisMessageIsJustForYouGWrapper5 {
-        position: absolute;
-        top: 28.19rem;
-        left: 9.5rem;
-        border-radius: 16.93px;
-        background-color: rgba(180, 59, 95, 0.74);
-        width: 17.56rem;
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 0.78rem 1.55rem;
-        box-sizing: border-box;
-        font-size: 0.88rem;
-  }
+  .messageWrapper2 {
+    position: relative;
+    top: 5.06rem;
+    left: 7rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: 18.41rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.99rem 1.98rem;
+    box-sizing: border-box;
+    font-size: 1.13rem;
+    margin-top: 1.2rem;
+}
   .msgbox {
         position: absolute;
         top: 0rem;
         left: calc(50% - 225px);
         width: 28.13rem;
-        height: 56.5rem;
+        height: 46.5rem;
         overflow: hidden;
+        overflow-y: scroll;
   }
   .messageBox {
         position: relative;
@@ -352,5 +304,23 @@
         color: #fff;
         font-family: Inter;
   }
+
+  
+  .frameParent2 {
+    position: relative;
+    width: 95%;
+    height: 2.44rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* gap: 1.31rem; */
+    text-align: left;
+    font-size: 1.16rem;
+    color: #000;
+    font-family: Inter;
+    margin-left: 1rem;
+    margin-top: 32rem;
+}
   
 }

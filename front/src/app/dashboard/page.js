@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import {useRouter} from 'next/navigation';
 import styles from './index.module.css';
 import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
 import {FaUserAlt,FaSignOutAlt} from 'react-icons/fa'
@@ -15,6 +16,8 @@ const Dashboard = () => {
 	const [activeComponent, setActiveComponent] = useState('friends');
 	const [activeIcon, setActiveIcon] = useState('friends');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+	const router=useRouter();
 
     const showFriends = () => {
 		setActiveComponent('friends');
@@ -34,6 +37,12 @@ const Dashboard = () => {
 	  const toggleSidebar = () => {
 		setIsSidebarOpen(!isSidebarOpen);
 	  };
+
+	  const handleLogout=()=>{
+		// socket.emit('remove', userid);
+    localStorage.removeItem("token");
+    router.push("/");
+	  }
 	  
   	return (
     		<div className={styles.dashboard}>
@@ -42,7 +51,8 @@ const Dashboard = () => {
 				  <div className={styles.connectedFriend}>
 				  <div className={styles.ellipseParent}>
 				  <div className={styles.frameChild} />
-				  <FaUserAlt className={styles.iconPerson2} />
+				  {/* <FaUserAlt className={styles.iconPerson2} /> */}
+				  <img src="/image/logo.png" className={styles.iconPerson2} alt="img" />
 				  </div>
 				  </div>
 				  <b className={styles.nirojThapa}>Niroj Thapa</b>
@@ -75,13 +85,18 @@ const Dashboard = () => {
 				  <div className={`${styles.sidebarcomponent} ${isSidebarOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
 				  {/* <div className={styles.sidebarcomponent} style={{ display: isSidebarOpen ? 'block' : 'none' }}> */}
         				<div className={styles.sidebar}>
-						 <ImCross onClick={()=>{setIsSidebarOpen(false)}}/>
+						 <ImCross className={styles.cross} onClick={()=>{setIsSidebarOpen(false)}}/>
           					<img className={styles.cda86444f0a972baee3b78e32fRemIcon} alt="" src="./image/logo.png" />
-          					<div className={styles.logOutParent}>
+          					<div className={styles.logOutParent} >
+							    <b className={styles.logOut}>Log Out</b>
+								<FaSignOutAlt className={styles.iconAccountLogout1} onClick={handleLogout}/>
+							</div>
+									
+							{/* <div className={styles.logOutParent}>
             						<b className={styles.logOut}>Log Out</b>
 									
 									<FaSignOutAlt className={styles.iconAccountLogout1}/>
-          					</div>
+          					</div> */}
           					<div className={styles.sidebarChild} />
           					<div className={styles.user}>
             						<div className={styles.ellipseGroup}>
@@ -93,13 +108,14 @@ const Dashboard = () => {
           					</div>
           					<div className={styles.frameParent}>
             						<div className={styles.frameGroup}>
-              							<div className={styles.vectorGroup}>
+              							{/* <div className={styles.vectorGroup}> */}
 											
 												<BsInfoCircle className={styles.vectorIcon7}/>
                 								<div className={styles.about}>About</div>
-              							</div>
+              							{/* </div> */}
               							<div className={styles.frameInner} />
             						</div>
+
             						<div className={styles.iconCogParent}>
 										
 										  <AiFillSetting className={styles.iconCog1}/>

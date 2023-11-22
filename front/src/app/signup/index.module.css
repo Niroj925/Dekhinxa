@@ -45,6 +45,7 @@
     padding: 0.55rem 2.77rem;
     box-sizing: border-box;
 }
+
 .createAccountWrapper {
     border-radius: 31.66px;
     background-color: rgba(14, 103, 108, 0.94);
@@ -56,6 +57,10 @@
     justify-content: center;
     padding: 0.55rem 2.77rem;
     box-sizing: border-box;
+}
+.createAccountWrapper:hover{
+    cursor: pointer;
+    background-color: #01a587;
 }
 .frameGroup {
     display: flex;
@@ -88,7 +93,7 @@
 }
 .createAnAccountParent {
     position: absolute;
-    top: 12.97rem;
+    top: 5.97rem;
     left: calc(50% - 203.65px);
     display: flex;
     flex-direction: column;
@@ -108,6 +113,38 @@
     font-family: Inter;
 }
 
+.input {
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px; 
+    outline: none;
+    border-radius: 21.21px;
+    background-color: #445c58;
+    width: 22.09rem;
+    height: 3.31rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.97rem 3.98rem;
+    box-sizing: border-box;
+    margin-left: -1.32rem;
+  }
+
+  .input1{
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+
+  .icon{
+    width: 25px;
+    height: 25px;
+  }
+  
 @media(max-width:650px){
     .cda86444f0a972baee3b78e32fRemIcon {
         position: absolute;

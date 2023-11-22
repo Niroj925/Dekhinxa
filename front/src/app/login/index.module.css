@@ -32,20 +32,7 @@
     width: 3.31rem;
     flex-shrink: 0;
 }
-.userWrapper {
-    border-radius: 21.21px;
-    background-color: #445c58;
-    width: 22.09rem;
-    height: 3.31rem;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.97rem 3.98rem;
-    box-sizing: border-box;
-}
+
 .password {
     position: relative;
     font-weight: 500;
@@ -177,6 +164,36 @@
     color: #fff;
     font-family: Inter;
 }
+
+.input {
+    font-size: 1rem;
+    border: none;
+    outline: none; 
+    border-radius: 21.21px;
+    background-color: #445c58;
+    width: 22.09rem;
+    height: 3.31rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.97rem 3.98rem;
+    box-sizing: border-box;
+  }
+  .input1{
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+
+  .icon{
+    width: 25px;
+    height: 25px;
+  }
+  
 
 
 
