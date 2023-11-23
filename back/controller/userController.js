@@ -83,5 +83,15 @@ async getAllUsers(req, res) {
   res.json(users);
 }
 
+async userValidate(req, res) {
+
+  // get login user id from middleware validation
+  const userId = req.userId; 
+   console.log(userId);
+  const users = await userModel.findOne({ _id:userId});
+  users?res.json(users):res.json({message:"user not found"});
+  
+}
+
 
 }

@@ -86,7 +86,7 @@ const ConnectedFriends = () => {
 						<input
 						 type='text'
 						 id='friend'
-						 placeholder='Search friends...'
+						 placeholder='Search new friends...'
 						 className={styles.searchFriend}
 						 value={friend}
 						 onChange={(e)=>setFriend(e.target.value)}

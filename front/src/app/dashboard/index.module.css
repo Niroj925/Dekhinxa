@@ -289,7 +289,9 @@
     left: 0.11rem;
     width: 21.66rem;
     height: 3.61rem;
+    cursor: pointer;
 }
+
 .rectangleGroup {
     position: absolute;
     top: 13.94rem;

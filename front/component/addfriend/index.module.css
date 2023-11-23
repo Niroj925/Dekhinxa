@@ -67,12 +67,13 @@
 }
 .friendsContainer2 {
     position: absolute;
-    top: 11.13rem;
+    top: 7.13rem;
     left: calc(50% - 335px);
     background-color: rgba(255, 255, 255, 0.04);
     width: 41.38rem;
-    height: 100%;
+    height: 25.0rem;
     overflow: hidden;
+    overflow-y: scroll;
 }
 .connectedFriendsChild {
     position: absolute;
@@ -99,7 +100,7 @@
 }
 .searchBox {
     position: absolute;
-    top: 3.63rem;
+    top: 1.3rem;
     left: calc(50% - 250px);
     border-radius: 25px;
     background-color: #697375;
@@ -221,7 +222,7 @@
   }
   .searchBox {
         position: absolute;
-        top: 2.13rem;
+        top: 2.0rem;
         left: calc(50% - 149px);
         border-radius: 14.97px;
         background-color: #697375;

@@ -26,7 +26,7 @@ const Login = () => {
 
 	const handleLogIn = async(event) => {
 		event.preventDefault();
-		console.log(`Email: ${email}, Password: ${password}`);
+		// console.log(`Email: ${email}, Password: ${password}`);
 		event.preventDefault();
 		const data={
 		  "email":email,
@@ -34,7 +34,7 @@ const Login = () => {
 		}
 		const res=await api.post('/api/user/login',data);
 	
-		console.log(res);
+		// console.log(res);
 		if(res){     
 		  toast.success('Successfully login', {
 			position: "bottom-right",
@@ -48,6 +48,7 @@ const Login = () => {
 			});
 			localStorage.setItem('token', JSON.stringify(res.data.token));
 			const userid=res.data._id;
+			localStorage.setItem('userid', JSON.stringify(res.data._id));
 			router.push(`/dashboard?userid=${userid}`); 
 		  }
 			else{
@@ -68,6 +69,15 @@ const Login = () => {
 		setEmail('');
 		setPassword('');
 	  };
+
+	  const googleAuth=async()=>{
+    
+        window.open(
+            `${process.env.BACKEND_API}/user/auth/google`,
+            "_self"
+        )
+    }
+
   	return (
     		<div className={styles.login}>
       			<img className={styles.cda86444f0a972baee3b78e32fRemIcon} alt="" src="./image/logo.png" />
@@ -85,16 +95,7 @@ const Login = () => {
 						value={email}
 						onChange={(e)=>setEmail(e.target.value)}
 					/>
-				
-					{/* <input
-						type="password"
-						id="password"
-						name="password"
-						className={styles.input}
-						placeholder="Enter your password"
-						value={password}
-						onChange={(e)=>setPassword(e.target.value)}
-					/> */}
+
 										<div className={styles.input}>
 					<input
 						type={showPassword ? 'text' : 'password'}
@@ -125,7 +126,7 @@ const Login = () => {
                 								<img className={styles.frameItem} alt="" src="Line 2.svg" />
               							</div>
             						</div>
-            						<div className={styles.rectangleParent}>
+            						<div className={styles.rectangleParent} onClick={googleAuth} >
               							<div className={styles.frameInner} />
               							<img className={styles.newGoogleLogo497x500RemoveIcon1} alt="" src="./image/gl.png" />
               							<div className={styles.loginWithGoogle1}>{`Login with Google `}</div>

@@ -105,6 +105,10 @@
     height: 3.31rem;
     z-index: 0;
 }
+.frameInner:hover{
+    background-color: #bd3a3a;
+}
+
 .newGoogleLogo497x500RemoveIcon1 {
     position: absolute;
     margin: 0 !important;
@@ -130,7 +134,11 @@
     justify-content: flex-start;
     position: relative;
     gap: 0.44rem;
+    cursor: pointer;
 }
+
+
+
 .frameParent {
     position: absolute;
     top: 9.66rem;

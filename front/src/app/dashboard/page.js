@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useRouter} from 'next/navigation';
 import styles from './index.module.css';
 import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
@@ -7,18 +7,58 @@ import {FaUserAlt,FaSignOutAlt} from 'react-icons/fa'
 import {AiOutlineMenu,AiFillSetting} from 'react-icons/ai'
 import {BiUserPlus,BiSolidUserDetail} from 'react-icons/bi'
 import {ImCross} from 'react-icons/im';
-import {RiFeedbackFill} from 'react-icons/ri'
+import {RiFeedbackFill} from 'react-icons/ri';
+import api from '../../../component/api/api.js';
 import Friends from '../../../component/friends/friends';
 import Chatbox from '../../../component/chatbox/chat';
 import VideoCall from '../../../component/video/video';
+import AddFriend from '../../../component/addfriend/addfriend';
 
 const Dashboard = () => {
 	const [activeComponent, setActiveComponent] = useState('friends');
 	const [activeIcon, setActiveIcon] = useState('friends');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+	const [username,setUsername]=useState('');
 
 	const router=useRouter();
 
+	const token=localStorage.getItem('token');
+
+	if(token == 'undefined'){
+		router.push('/login');
+	}
+
+	const getUser = async () => {
+
+		const token=localStorage.getItem('token')
+
+	if(token == 'undefined'){
+		router.push('/login');
+	}else{
+		try {
+		  const response = await api.get('/api/user/uservalidate',
+			{
+			  headers: {
+				token: JSON.parse(token),
+			  },
+			}
+		  );
+	  
+		//   console.log(response);
+		  const {data}=response
+		// console.log('name:',response.data.name);
+		setUsername(data.name);
+		} catch (error) {
+		  
+		 console.log(error)
+		}
+	  }
+	  };
+
+	  useEffect(()=>{
+		getUser();
+	  },[])
+	  
     const showFriends = () => {
 		setActiveComponent('friends');
 		setActiveIcon('friends'); // Add this line
@@ -33,6 +73,11 @@ const Dashboard = () => {
 		setActiveComponent('videoCall');
 		setActiveIcon('videoCall'); // Add this line
 	  };
+
+	  const showAddFriend=()=>{
+		setActiveComponent('addFriend');
+		setActiveIcon('addFriend'); 
+	  }
 
 	  const toggleSidebar = () => {
 		setIsSidebarOpen(!isSidebarOpen);
@@ -78,6 +123,8 @@ const Dashboard = () => {
         {activeComponent === 'friends' && <Friends />}
         {activeComponent === 'chatbox' && <Chatbox />}
         {activeComponent === 'videoCall' && <VideoCall />}
+		{activeComponent === 'addFriend' && <AddFriend/>}
+
       </div>
 
 				  <AiOutlineMenu className={styles.iconMenu1} onClick={toggleSidebar} />
@@ -104,7 +151,7 @@ const Dashboard = () => {
 										
 										  <FaUserAlt className={styles.iconPerson2}/>
             						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
+            						<b className={styles.nirojThapa}>{username}</b>
           					</div>
           					<div className={styles.frameParent}>
             						<div className={styles.frameGroup}>
@@ -122,11 +169,14 @@ const Dashboard = () => {
               							<div className={styles.setting}>Setting</div>
             						</div>
             						<div className={styles.rectangleDiv} />
-            						<div className={styles.rectangleParent}>
+            						<div className={styles.rectangleParent} onClick={showAddFriend} >
               							<div className={styles.frameChild1} />
               							<div className={styles.addFriends}>Add Friends</div>
 										
-										  <BiUserPlus className={styles.vectorIcon8}/>
+										  <BiUserPlus 
+										  className={`${styles.vectorIcon8} ${activeIcon === 'addFriend' ? styles.activeIcon : ''}`}
+										  onClick={showAddFriend}
+										  />
             						</div>
             						<div className={styles.rectangleGroup}>
               							<div className={styles.frameChild1} />
