@@ -22,24 +22,61 @@ const Dashboard = () => {
 
 	const router=useRouter();
 
-	const token=localStorage.getItem('token');
+	// Client-side JavaScript
+	function getCookie(cookieName) {
+		const name = cookieName + '=';
+		const decodedCookie = decodeURIComponent(document.cookie);
+		const cookieArray = decodedCookie.split(';');
+	  
+		for (let i = 0; i < cookieArray.length; i++) {
+		  let cookie = cookieArray[i].trim();
+		  if (cookie.indexOf(name) === 0) {
+			return cookie.substring(name.length, cookie.length);
+		  }
+		}
+	  
+		return null;
+	  }
 
-	if(token == 'undefined'){
-		router.push('/login');
-	}
+  function deleteCookie(cookieName, path) {
+	document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path || '/'};`;
+  }
+  
+
+	// if(token == 'undefined'){
+	// 	// router.push('/login');
+	// }
 
 	const getUser = async () => {
 
-		const token=localStorage.getItem('token')
+		 // Example: Get the value of the 'token' cookie
+		//  const tokenValue = getCookie('token');
+  
+		//  // Use the token value as needed in your client-side application
+		//  console.log('Token cookie:', tokenValue);
+		 
+	   
+		//    const tokenVal=localStorage.getItem('token');
+	   
+		//    console.log('Token local :',tokenVal)
+	   
+		//    const token=tokenVal || tokenValue;
 
-	if(token == 'undefined'){
+		   const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+
+		// const token=localStorage.getItem('token')
+		console.log("token:",token);
+
+	if(token == null || token == 'undefine'){
 		router.push('/login');
 	}else{
+
 		try {
 		  const response = await api.get('/api/user/uservalidate',
 			{
 			  headers: {
-				token: JSON.parse(token),
+				// token: JSON.parse(token),
+				token:token
 			  },
 			}
 		  );
@@ -86,6 +123,7 @@ const Dashboard = () => {
 	  const handleLogout=()=>{
 		// socket.emit('remove', userid);
     localStorage.removeItem("token");
+	deleteCookie('token','http://localhost:3000/dashboard');
     router.push("/");
 	  }
 	  

@@ -8,8 +8,11 @@ import router from './route/userRoute.js';
 import {notfound,errHandler} from './middleware/errMiddleware.js';
 import chatRoute from './route/chatRoute.js';
 import messageRoute from "./route/messageRoute.js";
+import userRoute from './route/authRoute.js';
 import path from 'path';
-import 'dotenv/config'
+import 'dotenv/config';
+import passport from "passport";
+import session from 'express-session';
 
 const app=express();
 const PORT=process.env.PORT||8080;
@@ -17,11 +20,22 @@ const PORT=process.env.PORT||8080;
 app.use(express.json());//to accept json data
 app.use(cors());
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  // cookie: { secure: true }
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 connectDB();
 
 app.use('/api/user',router);
 app.use('/api/chat',chatRoute);
 app.use('/api/message',messageRoute);
+app.use('/user',userRoute);
 
 app.get('/posts', async (req, res) => {
   try {

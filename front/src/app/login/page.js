@@ -73,7 +73,7 @@ const Login = () => {
 	  const googleAuth=async()=>{
     
         window.open(
-            `${process.env.BACKEND_API}/user/auth/google`,
+            `http://localhost:8080/user/auth/google`,
             "_self"
         )
     }

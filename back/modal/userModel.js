@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import findOrCreate from 'mongoose-findorcreate';
 import bcrypt from 'bcrypt';
 
 const userSchema=mongoose.Schema({
     name:{type:String,required:true},
     email:{type:String,required:true,unique:true},
-    password:{type:String,required:true},
+    password:{type:String},
     
     // pic:{
     //     type:String,
@@ -18,7 +19,7 @@ const userSchema=mongoose.Schema({
 userSchema.pre("save", function (next) {
     const user = this
   
-    if (this.isModified("password") || this.isNew) {
+    if (this.isModified("password") && this.isNew) {
       bcrypt.genSalt(10, function (saltError, salt) {
         if (saltError) {
           return next(saltError)

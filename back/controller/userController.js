@@ -30,6 +30,25 @@ export default class AuthController{
           
         }  
 }
+
+async googleauth(req, res) {
+  const user = req.user;
+  const userId = user._id;   // Retrieve the user's ID
+  console.log(user);
+
+  const token = generateToken(userId);
+  // console.log('Generated Token:', token);
+
+  // const successRedirectUrl= `https://fonehub.netlify.app/product/buy?userid=${userId}`
+  const successRedirectUrl= `http://localhost:3000/dashboard?userid=${userId}`
+
+   // Set the token as an HTTP-only cookie
+  //  res.cookie('token', token, { httpOnly: true });
+   res.cookie('token', token);
+ 
+  res.redirect(successRedirectUrl);  
+}
+
 async authUser(req,res){
        
   try{
@@ -48,7 +67,7 @@ async authUser(req,res){
 
             const token=  generateToken(response._id);
              
-              console.log(token);
+              // console.log(token);
 
                res.json({...response.toObject(), token}); 
           }else{
