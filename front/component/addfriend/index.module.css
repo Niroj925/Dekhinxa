@@ -28,24 +28,29 @@
     position: relative;
     gap: 0.63rem;
 }
-.nirojThapa {
+.name {
     position: relative;
+    font-size: 20px;
 }
-.vectorIcon {
-    position: relative;
-    width: 2.75rem;
-    height: 2.28rem;
-    color: rgba(250, 30, 96, 0.74);
+.add{
+    background-color: rgba(221, 61, 109, 0.74);
+    margin-right: 10px;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.iconVideo5 {
-    position: relative;
-    width: 4.5rem;
-    height: 3.14rem;
-    color: rgba(250, 30, 96, 0.74);
+
+.add:hover{
+    background-color:  rgba(250, 30, 96, 0.74);
 }
+.addFriend{
+font-size: medium;
+}
+
 .frameParent {
     border-radius: 20px;
     background-color: rgba(120, 139, 157, 0.49);
+    width: 100%;
     height: 5.63rem;
     display: flex;
     flex-direction: row;
@@ -97,6 +102,10 @@
     position: relative;
     width: 2.73rem;
     height: 2.93rem;
+    cursor: pointer;
+}
+.iconMagnifyingGlass1:hover{
+    color:  rgba(250, 30, 96, 0.74);
 }
 .searchBox {
     position: absolute;

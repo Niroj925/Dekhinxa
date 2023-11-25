@@ -74,7 +74,7 @@
 
 .vectorIcon4 {
     position: relative;
-    width: 5.02rem;
+    width: 3.02rem;
     height: 4.01rem;
     cursor: pointer;
 }
@@ -129,6 +129,7 @@
     width: 5.5rem;
     height: 5.05rem;
 }
+
 .logOutParent {
     position: absolute;
     top: 3.38rem;
@@ -138,8 +139,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
     /* gap: 0.67rem;  */
 }
+
+.logOutParent:hover{
+    color: rgba(250, 30, 96, 0.74);
+}
+
+
 .sidebarChild {
     position: absolute;
     top: 7.63rem;

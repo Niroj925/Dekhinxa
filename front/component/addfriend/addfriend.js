@@ -2,97 +2,176 @@
 import styles from './index.module.css';
 import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
 import {FaUserAlt,FaSignOutAlt,FaSearch} from 'react-icons/fa'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import api from '../api/api.js';
+import { getCookie } from '../function/function.js';
 
 const ConnectedFriends = () => {
 
-	const [friend,setFriend]=useState();
+	const [searchFriend,setSearchFriend]=useState('');
+    const [myFriends,setMyFriends]=useState([]);
+	const [friends,setFriends]=useState([]);
+
+	const key=window.location.search;
+	const urlParams=new URLSearchParams(key);
+	const userid=urlParams.get('userid');
+
+	const getFriends= async () => {
+
+		const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+		// console.log(token);
+
+		if(token == null || token == 'undefine'){
+			router.push('/login');
+		}else{
+		try {
+		  const response = await api.get(
+			`/api/user?search=${searchFriend}`,
+			{
+			  headers: {
+				token: token,
+			  },
+			}
+		  );
+
+		//   console.log(response)
+	
+		  setFriends(response.data);
+		 
+		} catch (error) {
+	   
+	  console.log(error)
+	 }
+   }
+   };
+
+   const getMyFriend=async ()=>{
+
+	const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+	// console.log(token);
+	try {
+	  const response = await api.get(
+		`/api/chat`,
+		{
+		  headers: {
+			token: token,
+		  },
+		}
+	  );
+
+	  console.log('respo:',response.data);
+	setMyFriends(response.data);
+
+	} catch (error) {
+   
+  console.log(error)
+ }	  
+   }
+
+
+   const handleSearch=()=>{
+	getFriends();
+   }
+
+   useEffect(()=>{
+	 getFriends();
+	 getMyFriend();
+   },[])
+
+   const addFriend=async (id)=>{
+
+	const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+	// console.log(token);
+	try {
+	  const response = await api.post(
+		`/api/chat`,{id},
+		{
+		  headers: {
+			token: token,
+		  },
+		}
+	  );
+
+	//   console.log(response)
+
+	 
+	} catch (error) {
+   
+  console.log(error)
+ }
+      
+   }
+
+   const isFriend=(id)=>{
+ 
+	
+	for(let i=0;i<= myFriends.length;i++){
+		
+		if(myFriends[i]){
+			console.log('friends:');
+		console.log(myFriends[i].user[0].name);
+		console.log(myFriends[i].user[1].name);
+		if(userid==myFriends[i].user[0]._id||userid==myFriends[i].user[1]._id){
+		  if(id==myFriends[i].user[0]._id||id==myFriends[i].user[1]._id){
+			return true;
+		}
+	}
+  }
+	return false;
+	}
+	return false;
+   }
+    // console.log(isFriend('65609d4c21e22ac0f1bac733'));
+
   	return (
     		<div className={styles.connectedFriends}>
       			<div className={styles.friendsContainer2}>
         				<div className={styles.friends}>
-          					<div className={styles.frameParent}>
-            						<div className={styles.ellipseParent}>
-              							<div className={styles.frameChild} >
-              							{/* <img className={styles.iconPerson5} alt="" src={`🦆 icon "person".svg`} /> */}
-										<FaUserAlt className={styles.iconPerson5}/>
-										</div>
-            						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
-            						{/* <img className={styles.vectorIcon} alt="" src="Vector.svg" />
-            						<img className={styles.iconVideo5} alt="" src={`🦆 icon "video".svg`} /> */}
 
-									<BsFillChatLeftTextFill className={styles.vectorIcon}/>
-									<BsCameraVideoFill className={styles.iconVideo5} />
-          					</div>
-          					<div className={styles.frameParent}>
-            						<div className={styles.ellipseParent}>
-              							<div className={styles.frameChild} >
-              							{/* <img className={styles.iconPerson5} alt="" src={`🦆 icon "person".svg`} /> */}
-										  <FaUserAlt className={styles.iconPerson5}/>
-										  </div>
-            						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
-            						{/* <img className={styles.vectorIcon} alt="" src="Vector.svg" />
-            						<img className={styles.iconVideo5} alt="" src={`🦆 icon "video".svg`} /> */}
-									<BsFillChatLeftTextFill className={styles.vectorIcon}/>
-									<BsCameraVideoFill className={styles.iconVideo5} />
-          					</div>
-          					<div className={styles.frameParent}>
-            						<div className={styles.ellipseParent}>
-              							<div className={styles.frameChild} >
-              							{/* <img className={styles.iconPerson5} alt="" src={`🦆 icon "person".svg`} /> */}
-										  <FaUserAlt className={styles.iconPerson5}/>
-										  </div>
-            						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
-            						{/* <img className={styles.vectorIcon} alt="" src="Vector.svg" />
-            						<img className={styles.iconVideo5} alt="" src={`🦆 icon "video".svg`} /> */}
-									<BsFillChatLeftTextFill className={styles.vectorIcon}/>
-									<BsCameraVideoFill className={styles.iconVideo5} />
-          					</div>
-          					<div className={styles.frameParent}>
-            						<div className={styles.ellipseParent}>
-              							<div className={styles.frameChild} >
-              							{/* <img className={styles.iconPerson5} alt="" src={`🦆 icon "person".svg`} /> */}
-										  <FaUserAlt className={styles.iconPerson5}/>
-										  </div>
-            						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
-            						{/* <img className={styles.vectorIcon} alt="" src="Vector.svg" />
-            						<img className={styles.iconVideo5} alt="" src={`🦆 icon "video".svg`} /> */}
-									<BsFillChatLeftTextFill className={styles.vectorIcon}/>
-									<BsCameraVideoFill className={styles.iconVideo5} />
-          					</div>
-          					<div className={styles.frameParent}>
-            						<div className={styles.ellipseParent}>
-              							<div className={styles.frameChild} >
-              							{/* <img className={styles.iconPerson5} alt="" src={`🦆 icon "person".svg`} /> */}
-										  <FaUserAlt className={styles.iconPerson5}/>
-										  </div>
-            						</div>
-            						<b className={styles.nirojThapa}>Niroj Thapa</b>
-            						{/* <img className={styles.vectorIcon} alt="" src="Vector.svg" />
-            						<img className={styles.iconVideo5} alt="" src={`🦆 icon "video".svg`} /> */}
-									<BsFillChatLeftTextFill className={styles.vectorIcon}/>
-									<BsCameraVideoFill className={styles.iconVideo5} />
-          					</div>
+                            {
+								friends&&(
+									friends.map((frn,index)=>(
+										<div className={styles.frameParent} key={index}>
+										<div className={styles.ellipseParent}>
+											  <div className={styles.frameChild} >
+												
+											<FaUserAlt className={styles.iconPerson5}/>
+											</div>
+										</div>
+										<b className={styles.name}>{frn.name}</b>
+
+                                          {
+											isFriend(frn._id)?(
+												<>
+
+												</>
+											):(
+												<>
+												 <div className={styles.add} onClick={()=>addFriend(frn._id)}>
+											<p className={styles.addFriend}> Add Friend </p>
+											</div>
+												</>
+											)
+										  }
+                                          {/* <div className={styles.add} onClick={()=>addFriend(frn._id)}>
+											<p className={styles.addFriend}> Add Friend </p>
+											</div> */}
+								  </div>
+									)
+									))}
         				</div>
       			</div>
       			<img className={styles.connectedFriendsChild} alt="" src="Rectangle 4.svg" />
-      			<div className={styles.searchBox}>
-        				{/* <div className={styles.searchFriends}>Search Friends...</div> */}
-        				{/* <img className={styles.iconMagnifyingGlass1} alt="" src={`🦆 icon "magnifying glass".svg`} /> */}
+      			<div className={styles.searchBox}>    
 						<input
 						 type='text'
 						 id='friend'
 						 placeholder='Search new friends...'
 						 className={styles.searchFriend}
-						 value={friend}
-						 onChange={(e)=>setFriend(e.target.value)}
-						/>
-					
-						<FaSearch className={styles.iconMagnifyingGlass1}/>
+						 value={searchFriend}
+						 onChange={(e)=>setSearchFriend(e.target.value)}
+						/>			
+						<FaSearch className={styles.iconMagnifyingGlass1} onClick={handleSearch}/>
       			</div>
     		</div>);
 };

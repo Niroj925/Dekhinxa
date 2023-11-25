@@ -47,6 +47,7 @@
     border-radius: 20px;
     background-color: rgba(120, 139, 157, 0.49);
     height: 5.63rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -55,6 +56,7 @@
     box-sizing: border-box;
     gap: 2.88rem;
 }
+
 .friends {
     position: absolute;
     top: 2.44rem;
@@ -65,14 +67,16 @@
     justify-content: flex-start;
     gap: 2.63rem;
 }
+
 .friendsContainer2 {
     position: absolute;
-    top: 11.13rem;
+    top: 7.13rem;
     left: calc(50% - 335px);
     background-color: rgba(255, 255, 255, 0.04);
     width: 41.38rem;
-    height: 100%;
+    height: 27rem;
     overflow: hidden;
+    overflow-y: scroll;
 }
 .connectedFriendsChild {
     position: absolute;
@@ -99,7 +103,7 @@
 }
 .searchBox {
     position: absolute;
-    top: 3.63rem;
+    top: 1.3rem;
     left: calc(50% - 250px);
     border-radius: 25px;
     background-color: #697375;
