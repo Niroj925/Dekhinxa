@@ -228,11 +228,14 @@ font-size: medium;
         position: relative;
         width: 1.87rem;
         height: 1.87rem;
+        margin-left: -7rem;
   }
   .searchBox {
-        position: absolute;
+        position: relative;
         top: 2.0rem;
-        left: calc(50% - 149px);
+        /* left: calc(50% -49px); */
+        width: 70%;
+        left: 5rem;
         border-radius: 14.97px;
         background-color: #697375;
         overflow: hidden;

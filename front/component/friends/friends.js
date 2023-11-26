@@ -19,7 +19,7 @@ const ConnectedFriends = () => {
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');
 
-	console.log(userid);
+	// console.log(userid);
 
 
 
@@ -55,8 +55,9 @@ const ConnectedFriends = () => {
 		if (searchFriend.trim() === '') {
 		  setFilterFriends(friends);
 		} else {
-		  const filteredArray = friends.filter(item => item.user[1].name.toLowerCase().includes(searchFriend.toLowerCase()));
-	
+		  const filteredArray = friends.filter(item => ((userid == item.user[0]._id)? item.user[1].name : item.user[0].name)
+		  .toLowerCase().includes(searchFriend.toLowerCase()));
+
 		  setFilterFriends(filteredArray);
 		}
 	  }, [searchFriend]);

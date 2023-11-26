@@ -226,7 +226,9 @@
   .searchBox {
         position: absolute;
         top: 2.13rem;
-        left: calc(50% - 149px);
+        width: 75%;
+        /* left: calc(50% - 149px); */
+        left: 5rem;
         border-radius: 14.97px;
         background-color: #697375;
         overflow: hidden;

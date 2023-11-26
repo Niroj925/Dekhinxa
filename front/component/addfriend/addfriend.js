@@ -59,7 +59,7 @@ const ConnectedFriends = () => {
 		}
 	  );
 
-	  console.log('respo:',response.data);
+	//   console.log('respo:',response.data);
 	setMyFriends(response.data);
 
 	} catch (error) {
@@ -91,36 +91,45 @@ const ConnectedFriends = () => {
 		  },
 		}
 	  );
-
-	//   console.log(response)
-
-	 
-	} catch (error) {
-   
+	//   console.log(response) 
+	} catch (error) { 
   console.log(error)
- }
-      
-   }
+ }    
+}
 
-   const isFriend=(id)=>{
- 
+//    const isFriend=(id)=>{
 	
-	for(let i=0;i<= myFriends.length;i++){
+// 	for(let i=0;i < myFriends.length;i++){
 		
-		if(myFriends[i]){
-			console.log('friends:');
-		console.log(myFriends[i].user[0].name);
-		console.log(myFriends[i].user[1].name);
-		if(userid==myFriends[i].user[0]._id||userid==myFriends[i].user[1]._id){
-		  if(id==myFriends[i].user[0]._id||id==myFriends[i].user[1]._id){
-			return true;
+// 		console.log(myFriends);
+// 		console.log(`friend ${i}`);
+// 		console.log(myFriends[i]);
+		
+// 		if(userid==myFriends[i].user[0]._id||userid==myFriends[i].user[1]._id){
+// 		  if(id==myFriends[i].user[0]._id||id==myFriends[i].user[1]._id){
+// 			return true;
+// 		}
+// 		return false;
+// 	}
+// 	return false;
+// 	}
+// 	return false;
+//    }
+
+const isFriend = (friendId) => {
+	for (let i = 0; i < myFriends.length; i++) {
+	  const users = myFriends[i].user;
+  
+	  if (users.some(user => user._id === userid)) {
+		// Check if the friendId exists in the users array
+		if (users.some(user => user._id === friendId)) {
+		  return true; // The user is a friend
 		}
+	  }
 	}
-  }
-	return false;
-	}
-	return false;
-   }
+  
+	return false; // The user is not a friend
+  };
     // console.log(isFriend('65609d4c21e22ac0f1bac733'));
 
   	return (
