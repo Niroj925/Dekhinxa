@@ -7,7 +7,7 @@ import activeFriendReducer from "./slicers/activeFriendSlice";
 
 
 const rootReducer = combineReducers({
-      activeFriend: activeFriendReducer,
+      friend: activeFriendReducer,
   });
 
 

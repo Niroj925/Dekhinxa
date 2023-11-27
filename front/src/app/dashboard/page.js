@@ -13,16 +13,35 @@ import Friends from '../../../component/friends/friends';
 import Chatbox from '../../../component/chatbox/chat';
 import VideoCall from '../../../component/video/video';
 import AddFriend from '../../../component/addfriend/addfriend';
+import {useSelector,useDispatch} from 'react-redux';
+import { setActiveComponent,logout} from '@/app/redux/slicers/activeFriendSlice';
 
 const Dashboard = () => {
-	const [activeComponent, setActiveComponent] = useState('friends');
+	
 	const [activeIcon, setActiveIcon] = useState('friends');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [username,setUsername]=useState('');
 
 	const router=useRouter();
+	const dispatch=useDispatch();
 
-	// Client-side JavaScript
+	const key=window.location.search;
+	const urlParams=new URLSearchParams(key);
+	const userid=urlParams.get('userid');
+
+	const activeFriend=useSelector((state)=>state.friend.activeFriend);
+    const activeComponent=useSelector((state)=>state.friend.activeComponent);
+
+
+	console.log(activeFriend);
+	// console.log(ActiveComponent);
+	console.log(activeComponent);
+
+	useEffect(()=>{
+		setActiveIcon(activeComponent);
+	},[activeComponent]);
+
+	
 	function getCookie(cookieName) {
 		const name = cookieName + '=';
 		const decodedCookie = decodeURIComponent(document.cookie);
@@ -43,29 +62,11 @@ const Dashboard = () => {
   }
   
 
-	// if(token == 'undefined'){
-	// 	// router.push('/login');
-	// }
-
 	const getUser = async () => {
-
-		 // Example: Get the value of the 'token' cookie
-		//  const tokenValue = getCookie('token');
-  
-		//  // Use the token value as needed in your client-side application
-		//  console.log('Token cookie:', tokenValue);
-		 
-	   
-		//    const tokenVal=localStorage.getItem('token');
-	   
-		//    console.log('Token local :',tokenVal)
-	   
-		//    const token=tokenVal || tokenValue;
 
 		   const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
 
-		// const token=localStorage.getItem('token')
-		console.log("token:",token);
+		// console.log("token:",token);
 
 	if(token == null || token == 'undefine'){
 		router.push('/login');
@@ -97,23 +98,19 @@ const Dashboard = () => {
 	  },[])
 	  
     const showFriends = () => {
-		setActiveComponent('friends');
-		setActiveIcon('friends'); // Add this line
+		dispatch(setActiveComponent('friends'));
 	  };
 	  
 	  const showChatbox = () => {
-		setActiveComponent('chatbox');
-		setActiveIcon('chatbox'); // Add this line
+		dispatch(setActiveComponent('chatbox'));
 	  };
 	  
 	  const showVideoCall = () => {
-		setActiveComponent('videoCall');
-		setActiveIcon('videoCall'); // Add this line
+		dispatch(setActiveComponent('videoCall'));
 	  };
 
 	  const showAddFriend=()=>{
-		setActiveComponent('addFriend');
-		setActiveIcon('addFriend'); 
+		dispatch(setActiveComponent('addFriend'));
 	  }
 
 	  const toggleSidebar = () => {
@@ -124,6 +121,7 @@ const Dashboard = () => {
 		// socket.emit('remove', userid);
     localStorage.removeItem("token");
 	deleteCookie('token','http://localhost:3000/dashboard');
+	dispatch(logout());
     router.push("/");
 	  }
 	  
@@ -138,7 +136,16 @@ const Dashboard = () => {
 				  <img src="/image/logo.png" className={styles.iconPerson2} alt="img" />
 				  </div>
 				  </div>
-				  <b className={styles.nirojThapa}>Niroj Thapa</b>
+				  {/* <b className={styles.nirojThapa}>Niroj Thapa</b> */}
+				  {
+					       activeFriend && (
+                                          userid==activeFriend.user[0]._id?
+										  (
+											<b className={styles.nirojThapa}>{activeFriend.user[1].name}</b>
+										  ):(
+                                               	<b className={styles.nirojThapa}>{activeFriend.user[0].name}</b>
+										  )
+										)}
 				  </div>
 
 				 <div className={styles.vectorParent}>
@@ -168,7 +175,6 @@ const Dashboard = () => {
 				  <AiOutlineMenu className={styles.iconMenu1} onClick={toggleSidebar} />
 
 				  <div className={`${styles.sidebarcomponent} ${isSidebarOpen ? styles.sidebarOpen : styles.sidebarClosed}`}>
-				  {/* <div className={styles.sidebarcomponent} style={{ display: isSidebarOpen ? 'block' : 'none' }}> */}
         				<div className={styles.sidebar}>
 						 <ImCross className={styles.cross} onClick={()=>{setIsSidebarOpen(false)}}/>
           					<img className={styles.cda86444f0a972baee3b78e32fRemIcon} alt="" src="./image/logo.png" />
@@ -176,12 +182,7 @@ const Dashboard = () => {
 							    <b className={styles.logOut}>Log Out</b>
 								<FaSignOutAlt className={styles.iconAccountLogout1} onClick={handleLogout}/>
 							</div>
-									
-							{/* <div className={styles.logOutParent}>
-            						<b className={styles.logOut}>Log Out</b>
-									
-									<FaSignOutAlt className={styles.iconAccountLogout1}/>
-          					</div> */}
+
           					<div className={styles.sidebarChild} />
           					<div className={styles.user}>
             						<div className={styles.ellipseGroup}>
@@ -193,11 +194,10 @@ const Dashboard = () => {
           					</div>
           					<div className={styles.frameParent}>
             						<div className={styles.frameGroup}>
-              							{/* <div className={styles.vectorGroup}> */}
-											
+              					
 												<BsInfoCircle className={styles.vectorIcon7}/>
                 								<div className={styles.about}>About</div>
-              							{/* </div> */}
+              				
               							<div className={styles.frameInner} />
             						</div>
 
@@ -232,7 +232,8 @@ const Dashboard = () => {
           					<div className={styles.sidebarItem} />
         				</div>
       			</div>
-    		</div>);
+    		</div>
+			);
 };
 
 export default Dashboard;
