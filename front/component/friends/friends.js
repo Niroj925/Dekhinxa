@@ -5,8 +5,8 @@ import {FaUserAlt,FaSignOutAlt,FaSearch} from 'react-icons/fa'
 import { useState,useEffect } from 'react';
 import { getCookie } from '../function/function';
 import api from '../api/api.js';
-import { useParams } from 'next/navigation';
-import { useRouter } from 'next/router';
+import {useSelector,useDispatch} from 'react-redux';
+import { setActiveComponent,setActiveFriend } from '@/app/redux/slicers/activeFriendSlice';
 
 const ConnectedFriends = () => {
 
@@ -18,6 +18,8 @@ const ConnectedFriends = () => {
 	const key=window.location.search;
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');
+
+	const dispatch=useDispatch();
 
 	// console.log(userid);
 
@@ -62,6 +64,16 @@ const ConnectedFriends = () => {
 		}
 	  }, [searchFriend]);
 
+	  const handleChat=(frn)=>{
+		dispatch(setActiveComponent('chatbox'));
+		dispatch(setActiveFriend(frn));
+	  }
+
+	  const handleVideo=(frn)=>{
+		dispatch(setActiveComponent('videoCall'));
+		dispatch(setActiveFriend(frn));
+	  }
+
   	return (
     		<div className={styles.connectedFriends}>
       			<div className={styles.friendsContainer2}>
@@ -79,22 +91,13 @@ const ConnectedFriends = () => {
 										{
                                           userid==frn.user[0]._id?
 										  (
-											<>
 											<b className={styles.nirojThapa}>{frn.user[1].name}</b>
-				
-											<BsFillChatLeftTextFill className={styles.vectorIcon} />
-											<BsCameraVideoFill className={styles.iconVideo5} />
-											</>
 										  ):(
-                                             <>
                                                	<b className={styles.nirojThapa}>{frn.user[0].name}</b>
-				
-													<BsFillChatLeftTextFill className={styles.vectorIcon} />
-													<BsCameraVideoFill className={styles.iconVideo5} />
-												</>
 										  )
-
 										}
+										<BsFillChatLeftTextFill className={styles.vectorIcon} onClick={()=>handleChat(frn)}/>
+										<BsCameraVideoFill className={styles.iconVideo5} onClick={()=>handleVideo(frn)} />
 								  </div>
 									)
 									))}
