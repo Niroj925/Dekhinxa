@@ -2,24 +2,78 @@
 
 import styles from './index.module.css';
 import {FaUserAlt,FaPaperPlane} from 'react-icons/fa';
-import { useState} from 'react';
+import { useState,useEffect} from 'react';
+import { useSelector } from 'react-redux';
+import api from '../api/api';
+import { getCookie } from '../function/function';
 
 const MessageBox = () => {
 	const [message,setMessage]=useState('');
 	const [msg,setMsg]=useState([]);
 
-	// useEffect(()=>{
-	// 	setMessage('');
-	// },[msg]);
+	const activeFriend=useSelector((state)=>state.friend.activeFriend);
 
-	const handleClick=()=>{
-		if(message.length>0){
-	   setMsg(prevMessages => [...prevMessages, message]);
+	const key=window.location.search;
+	const urlParams=new URLSearchParams(key);
+	const userid=urlParams.get('userid');
+
+    const fetchMessage = async () => {
+
+		const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+
+		try {
+		  const response = await api.get(
+			`/api/message/${activeFriend._id}`,
+			{
+			  headers: {
+				token: token
+			  }
+			}
+		  );
+
+		  (response.data.length>0)?setMsg(response.data):setMsg([]);
+	
+		  console.log(msg);
+		//   socket.emit('join chat', selectedChat._id);
+		console.log(response.data);
+	  
+		} catch (err) {
+		  console.log(err);
 		}
-	   setMessage('');
-	   console.log(msg);
-	   console.log(message);   
+	  };
+
+	  useEffect(()=>{
+		fetchMessage();
+	},[]);
+
+	const sendMessage=async () =>{
+		const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
+
+		try {
+			const response=await api.post('/api/message',
+			{
+				msg:message,
+				chatId:activeFriend._id
+			},
+			{
+				headers:{
+					token:token
+				}
+			}
+			);
+
+			console.log(response.data);
+             
+			setMessage('');
+			setMsg([...msg,response.data]);
+			fetchMessage();
+
+		}catch(err){
+			console.log(err);
+		}
 	}
+
+
 	const handleChange=(event)=>{
 		setMessage(event.target.value);
 		// console.log(message);
@@ -28,26 +82,53 @@ const MessageBox = () => {
   	return (
     		<div className={styles.messageBox}>
       			<div className={styles.msgbox}>
-        				<div className={styles.frameParent}>
+        				{/* <div className={styles.frameParent}>
           					<div className={styles.ellipseParent}>
             						<div className={styles.frameChild} />
-            						{/* <img className={styles.iconPerson4} alt="" src={`🦆 icon "person".svg`} /> */}
+									
 									<FaUserAlt className={styles.iconPerson4}/>
           					</div>
           					<div className={styles.thisMessageIsJustForYouGWrapper}>
             						<div className={styles.thisMessageIs8}>This message is just for you gaich</div>
           					</div>
-        				</div>
+        				</div> */}
         		
-						<ul>
 							{msg.map((m, index) => (
-							<li key={index}>
-								<div className={styles.messageWrapper2}>
-          					<div className={styles.thisMessageIs8}>{m}</div>
-        				    </div>
-								</li>
+                            
+		                       <>
+							   {
+								(m.sender._id==userid)?(
+                                  <>
+								<div className={styles.sendtextBox} key={index}>
+							
+							<div className={styles.messageWrapper2} >
+
+							   <p className={styles.thisMessageIs8}>{m.content}</p>
+							  </div>
+						</div>
+								  </>
+								):(
+									<>
+								<div className={styles.receivetextBox} key={index}>
+								{/* <div className={styles.ellipseParent}>
+            						<div className={styles.frameChild} />
+									
+									<FaUserAlt className={styles.iconPerson4}/>
+          					</div>
+							 */}
+							<div className={styles.messageWrapper1} >
+
+							   <p className={styles.thisMessageIs8}>{m.content}</p>
+							  </div>
+						</div>
+									</>
+								)
+							   }
+
+							</>
+
 							))}
-						</ul>      			
+					
       			</div>
 
 				  <div className={styles.frameParent2}>
@@ -62,7 +143,7 @@ const MessageBox = () => {
 						onChange={handleChange}
 						/>
 					</div>
-					<FaPaperPlane className={styles.vectorIcon1} onClick={handleClick} />
+					<FaPaperPlane className={styles.vectorIcon1} onClick={sendMessage} />
 					</div>
 
 

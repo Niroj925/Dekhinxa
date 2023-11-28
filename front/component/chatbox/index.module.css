@@ -1,113 +1,48 @@
-.frameChild {
-    position: relative;
-    border-radius: 50%;
-    background-color: #7a8182;
-    width: 3.23rem;
-    height: 3.23rem;
-    z-index: 0;
-}
-.iconPerson4 {
-    position: absolute;
-    margin: 0 !important;
-    height: 60%;
-    width: 60%;
-    top: 16%;
-    right: 21.33%;
-    bottom: 24%;
-    left: 18.67%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    z-index: 1;
-}
-.ellipseParent {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-    gap: 0.43rem;
-}
+
 .thisMessageIs8 {
-    align-self: stretch;
+    /* align-self: stretch;
     flex: 1;
-    position: relative;
+    position: relative; */
     font-weight: 500;
 }
-.thisMessageIsJustForYouGWrapper {
-    border-radius: 20.66px;
-    background-color: #366761;
-    width: 23.93rem;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.95rem 2.67rem;
-    box-sizing: border-box;
-}
-.frameParent {
-    position: absolute;
-    top: 0.56rem;
-    left: 2.63rem;
-    width: 28.13rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.99rem;
-}
-.frameGroup {
-    position: absolute;
-    top: 10.25rem;
-    left: 2.63rem;
-    width: 28.13rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.99rem;
-}
-.frameDiv {
-    position: absolute;
-    top: 19.94rem;
-    left: 2.63rem;
-    width: 28.13rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.99rem;
-}
-.frameParent1 {
-    position: absolute;
-    top: 29.63rem;
-    left: 3.25rem;
-    width: 28.13rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.99rem;
-}
-.messageWrapper2 {
+
+.messageWrapper1 {
     position: relative;
-    top: 5.06rem;
-    left: 25rem;
+    top: 1.06rem;
     border-radius: 21.6px;
-    background-color: rgba(180, 59, 95, 0.74);
+    background-color: #366761;
+    width: fit-content;
     max-width: 23rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0.99rem 1.98rem;
-    box-sizing: border-box;
+    padding: 0.81rem 1.08rem;
     font-size: 1.13rem;
     margin-top: 1.2rem;
+
+} 
+.messageWrapper2 {
+    position: relative;
+    top: 1.06rem;
+    border-radius: 21.6px;
+    background-color: rgba(180, 59, 95, 0.74);
+    width: fit-content;
+    max-width: 23rem;
+    padding: 0.81rem 1.08rem;
+    font-size: 1.13rem;
+    margin-top: 1.2rem;
+
+} 
+.sendtextBox{
+    display:flex;
+    /* align-items: flex-end; */
+    justify-content: flex-end;
+    margin-right: 1.3rem;
 }
+.receivetextBox{
+    display:flex;
+    /* align-items: flex-end; */
+    justify-content: flex-start;
+    margin-left: 1.3rem;
+}
+
 
 .msgbox {
     position: relative;
@@ -117,17 +52,13 @@
     height: 23.00rem;
     /* overflow: hidden; */
     overflow-y: auto;
+    
 }
 .messageBox {
-    position: relative;
+    /* position: relative; */
     background-color: rgba(84, 95, 96, 0.48);
     width: 100%;
     height: 55.74rem;
-    overflow: hidden;
-    text-align: left;
-    font-size: 1.08rem;
-    color: #fff;
-    font-family: Inter;
 }
   .message {
     position: relative;

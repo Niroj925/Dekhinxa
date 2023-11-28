@@ -167,12 +167,15 @@
         width: 2.22rem;
         height: 1.94rem;
         color: rgba(250, 30, 96, 0.74);
+        cursor: pointer;
   }
+
   .iconVideo5 {
         position: relative;
         width: 3.22rem;
         height: 2.39rem;
         color: rgba(250, 30, 96, 0.74);
+        cursor: pointer;
   }
   .frameParent {
         border-radius: 11.83px;

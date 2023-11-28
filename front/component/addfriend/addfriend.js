@@ -37,6 +37,7 @@ const ConnectedFriends = () => {
 		//   console.log(response)
 	
 		  setFriends(response.data);
+		  setFilterFriends(response.data);
 		 
 		} catch (error) {
 	   
@@ -45,6 +46,7 @@ const ConnectedFriends = () => {
    }
    };
 
+  
    const getMyFriend=async ()=>{
 
 	const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
@@ -97,38 +99,19 @@ const ConnectedFriends = () => {
  }    
 }
 
-//    const isFriend=(id)=>{
-	
-// 	for(let i=0;i < myFriends.length;i++){
-		
-// 		console.log(myFriends);
-// 		console.log(`friend ${i}`);
-// 		console.log(myFriends[i]);
-		
-// 		if(userid==myFriends[i].user[0]._id||userid==myFriends[i].user[1]._id){
-// 		  if(id==myFriends[i].user[0]._id||id==myFriends[i].user[1]._id){
-// 			return true;
-// 		}
-// 		return false;
-// 	}
-// 	return false;
-// 	}
-// 	return false;
-//    }
-
 const isFriend = (friendId) => {
 	for (let i = 0; i < myFriends.length; i++) {
 	  const users = myFriends[i].user;
   
 	  if (users.some(user => user._id === userid)) {
-		// Check if the friendId exists in the users array
+		
 		if (users.some(user => user._id === friendId)) {
-		  return true; // The user is a friend
+		  return true; 
 		}
 	  }
 	}
   
-	return false; // The user is not a friend
+	return false; 
   };
     // console.log(isFriend('65609d4c21e22ac0f1bac733'));
 

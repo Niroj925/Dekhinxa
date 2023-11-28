@@ -4,6 +4,7 @@ import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from
 import {FaUserAlt,FaSignOutAlt,FaSearch} from 'react-icons/fa'
 import { useState,useEffect } from 'react';
 import { getCookie } from '../function/function';
+import { useRouter } from 'next/navigation';
 import api from '../api/api.js';
 import {useSelector,useDispatch} from 'react-redux';
 import { setActiveComponent,setActiveFriend } from '@/app/redux/slicers/activeFriendSlice';
@@ -20,10 +21,10 @@ const ConnectedFriends = () => {
 	const userid=urlParams.get('userid');
 
 	const dispatch=useDispatch();
-
+    
 	// console.log(userid);
 
-
+    const router=useRouter();
 
 	const getFriend=async ()=>{
 
@@ -42,9 +43,10 @@ const ConnectedFriends = () => {
 		  console.log(response)
 		setFriends(response.data);
 	    setFilterFriends(response.data);
+		response.status==200? "":(router.push('/login'));
 	 
 		} catch (error) {
-	   
+	   router.push('/login');
 	  console.log(error)
 	 }	  
 	   }
