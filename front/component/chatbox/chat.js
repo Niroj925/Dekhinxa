@@ -6,16 +6,30 @@ import { useState,useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import api from '../api/api';
 import { getCookie } from '../function/function';
+// import io from 'socket.io-client';
+import { io } from 'socket.io-client';
+const ENDPOINT=process.env.BACKEND_API
+var socket;
+
 
 const MessageBox = () => {
 	const [message,setMessage]=useState('');
 	const [msg,setMsg]=useState([]);
+	const [typing,setTyping]=useState(false);
+	const [isTyping,setIsTyping]=useState(false);
 
 	const activeFriend=useSelector((state)=>state.friend.activeFriend);
 
 	const key=window.location.search;
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');
+
+    
+	useEffect(()=>{
+		socket=io(ENDPOINT);
+		socket.on('typing',()=>setIsTyping(true));
+		socket.on('stop typing',()=>setIsTyping(false));
+	  },[])
 
     const fetchMessage = async () => {
 
@@ -34,7 +48,7 @@ const MessageBox = () => {
 		  (response.data.length>0)?setMsg(response.data):setMsg([]);
 	
 		  console.log(msg);
-		//   socket.emit('join chat', selectedChat._id);
+		  socket.emit('join chat', activeFriend._id);
 		console.log(response.data);
 	  
 		} catch (err) {
@@ -45,6 +59,7 @@ const MessageBox = () => {
 	  useEffect(()=>{
 		fetchMessage();
 	},[]);
+
 
 	const sendMessage=async () =>{
 		const token=getCookie('token') || JSON.parse(localStorage.getItem('token'));
@@ -62,9 +77,11 @@ const MessageBox = () => {
 			}
 			);
 
-			console.log(response.data);
+			
              
 			setMessage('');
+			socket.emit('new message', response.data);
+			console.log(response.data);
 			setMsg([...msg,response.data]);
 			fetchMessage();
 
@@ -73,25 +90,46 @@ const MessageBox = () => {
 		}
 	}
 
+	useEffect(() => {
+		socket.on('message received', (newMessageReceived) => {
+		  console.log('message received:')
+		  console.log(newMessageReceived);
+		  if (activeFriend._id !== String(newMessageReceived.chat._id)) {
+			console.log('chat not matched');
+			// if chat is not selected or doesn't match current chat
+			// setNotification([newMessageReceived, ...notification]);
+			// setFetchAgain(!fetchAgain);
+		  } else {
+			setMsg([...msg, newMessageReceived]);
+		  }
+		});
+	  }, [msg]);
+
 
 	const handleChange=(event)=>{
 		setMessage(event.target.value);
-		// console.log(message);
+
+		if (!typing) {
+		  setTyping(true);
+		  socket.emit('typing', activeFriend._id);
+		}
+		
+		let lastTypingTime = new Date().getTime();
+		var timerLength = 4000;
+		setTimeout(() => {
+		  var timeNow = new Date().getTime();
+		  var timeDiff = timeNow - lastTypingTime;
+		  if (timeDiff >= timerLength && typing) {
+		   
+			socket.emit('stop typing', activeFriend._id);
+			setTyping(false);
+		  }
+		}, timerLength);
 	}
 
   	return (
     		<div className={styles.messageBox}>
       			<div className={styles.msgbox}>
-        				{/* <div className={styles.frameParent}>
-          					<div className={styles.ellipseParent}>
-            						<div className={styles.frameChild} />
-									
-									<FaUserAlt className={styles.iconPerson4}/>
-          					</div>
-          					<div className={styles.thisMessageIsJustForYouGWrapper}>
-            						<div className={styles.thisMessageIs8}>This message is just for you gaich</div>
-          					</div>
-        				</div> */}
         		
 							{msg.map((m, index) => (
                             
@@ -128,6 +166,12 @@ const MessageBox = () => {
 							</>
 
 							))}
+
+						{isTyping ? (
+							<div>
+							Typing...
+							</div>
+						) : <></>}
 					
       			</div>
 

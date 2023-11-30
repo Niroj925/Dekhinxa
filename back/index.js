@@ -37,15 +37,6 @@ app.use('/api/chat',chatRoute);
 app.use('/api/message',messageRoute);
 app.use('/user',userRoute);
 
-app.get('/posts', async (req, res) => {
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    res.status(200).json(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
 
 //deployment
 const __dirname=path.resolve();
@@ -71,8 +62,7 @@ const server=http.createServer(app);
 const io=new Server(server,{
   pingTimeout:50000,
     cors:{
-    // origin:"http://localhost:3000",
-    origin:"https://kuraute.netlify.app",
+    origin:"http://localhost:3000",
     methods:["GET","POST","PUT","DELETE"]
     }
 })
@@ -106,11 +96,13 @@ io.on('connection',(socket)=>{
     })
 
     socket.on('typing',(room)=>{
+      console.log('typing ');
       socket.to(room).emit('typing')
     })
 
     socket.on('stop typing',(room)=>
     {
+      console.log('stopped');
       socket.to(room).emit('stop typing')
     })
 

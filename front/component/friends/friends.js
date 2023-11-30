@@ -8,19 +8,31 @@ import { useRouter } from 'next/navigation';
 import api from '../api/api.js';
 import {useSelector,useDispatch} from 'react-redux';
 import { setActiveComponent,setActiveFriend } from '@/app/redux/slicers/activeFriendSlice';
+import io from 'socket.io-client';
+
+const ENDPOINT=process.env.BACKEND_API
+var socket;
+
 
 const ConnectedFriends = () => {
 
 	const [searchFriend,setSearchFriend]=useState('');
 	const [friends,setFriends]=useState([]);
 	const [filterFriends,setFilterFriends]=useState([]);
-
+	const[socketConnected,setSocketConnected]=useState([]);
+    const [loggedInUsers,setLoggedInUsers]=useState([]);
 
 	const key=window.location.search;
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');
 
 	const dispatch=useDispatch();
+
+	useEffect(()=>{
+		socket=io(ENDPOINT);
+		socket.on('connected',()=>setSocketConnected(true));
+
+	  },[])
     
 	// console.log(userid);
 
@@ -49,6 +61,16 @@ const ConnectedFriends = () => {
 	   router.push('/login');
 	  console.log(error)
 	 }	  
+	 console.log('socket connected');
+    console.log(socketConnected);
+
+	 socket.on('user list', (users) => {
+		// update the UI to display the list of logged-in users
+		console.log(users)
+		setLoggedInUsers(users);
+		console.log("logged in users");
+		console.log(loggedInUsers);
+	  });
 	   }
 	
 	 useEffect(()=>{

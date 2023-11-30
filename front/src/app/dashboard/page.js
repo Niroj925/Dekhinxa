@@ -15,12 +15,18 @@ import VideoCall from '../../../component/video/video';
 import AddFriend from '../../../component/addfriend/addfriend';
 import {useSelector,useDispatch} from 'react-redux';
 import { setActiveComponent,logout} from '@/app/redux/slicers/activeFriendSlice';
+import io from 'socket.io-client';
+
+const ENDPOINT=process.env.BACKEND_API;
+var socket;
 
 const Dashboard = () => {
 	
 	const [activeIcon, setActiveIcon] = useState('friends');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [username,setUsername]=useState('');
+	const [socketConnected,setSocketConnected]=useState(false);
+	const [loggedInUsers,setLoggedInUsers]=useState([]);
 
 	const router=useRouter();
 	const dispatch=useDispatch();
@@ -37,9 +43,18 @@ const Dashboard = () => {
 	// console.log(ActiveComponent);
 	console.log(activeComponent);
 
+
 	useEffect(()=>{
 		setActiveIcon(activeComponent);
 	},[activeComponent]);
+
+	useEffect(()=>{
+		socket=io(ENDPOINT);
+		socket.emit('setup',userid);
+		socket.on('connected',()=>setSocketConnected(true));
+		// socket.on('typing',()=>setIsTyping(true));
+		// socket.on('stop typing',()=>setIsTyping(false));
+	  },[])
 
 	
 	function getCookie(cookieName) {
@@ -91,6 +106,16 @@ const Dashboard = () => {
 		 console.log(error)
 		}
 	  }
+
+
+	//   socket.on('user list', (users) => {
+	// 	// update the UI to display the list of logged-in users
+	// 	setLoggedInUsers(users);
+	// 	console.log("logged in users");
+	// 	console.log(users)
+	// 	// console.log(loggedInUsers);
+	//   });
+
 	  };
 
 	  useEffect(()=>{
@@ -98,6 +123,7 @@ const Dashboard = () => {
 	  },[])
 	  
     const showFriends = () => {
+	      	console.log(loggedInUsers);
 		dispatch(setActiveComponent('friends'));
 	  };
 	  
@@ -118,7 +144,7 @@ const Dashboard = () => {
 	  };
 
 	  const handleLogout=()=>{
-		// socket.emit('remove', userid);
+	// socket.emit('remove', userid);
     localStorage.removeItem("token");
 	deleteCookie('token','http://localhost:3000/dashboard');
 	dispatch(logout());
