@@ -49,9 +49,9 @@ const MessageBox = () => {
 
 		  (response.data.length>0)?setMsg(response.data):setMsg([]);
 	
-		  console.log(msg);
+		//   console.log(msg);
 		  socket.emit('join chat', activeFriend._id);
-		console.log(response.data);
+		// console.log(response.data);
 	  
 		} catch (err) {
 		  console.log(err);
@@ -83,7 +83,7 @@ const MessageBox = () => {
              
 			setMessage('');
 			socket.emit('new message', response.data);
-			console.log(response.data);
+			// console.log(response.data);
 			setMsg([...msg,response.data]);
 			fetchMessage();
 
@@ -94,32 +94,26 @@ const MessageBox = () => {
 
 	useEffect(() => {
 		socket.on('message received', (newMessageReceived) => {
-		  console.log('message received:')
+		//   console.log('message received:')
 		  console.log(newMessageReceived);
 		  if (activeFriend._id !== String(newMessageReceived.chat._id)) {
-			console.log('chat not matched');
-			// if chat is not selected or doesn't match current chat
-			// setNotification([newMessageReceived, ...notification]);
-			// setFetchAgain(!fetchAgain);
+			// console.log('chat not matched');
+		
 		  } else {
 			setMsg([...msg, newMessageReceived]);
 		  }
 		});
 	  }, [msg]);
 
-	  useEffect(() => {
-		// Scroll to the bottom when the component mounts or when new messages arrive
-		scrollToBottom();
-	  }, [msg]);
-	
 	  const scrollToBottom = () => {
-		// Scroll to the bottom of the message container
 		if (msgContainerRef.current) {
 		  msgContainerRef.current.scrollTop = msgContainerRef.current.scrollHeight;
 		}
 	  };
 
-
+		useEffect(() => {
+				scrollToBottom();
+			}, [msg]);
 	const handleChange=(event)=>{
 		setMessage(event.target.value);
 
@@ -139,6 +133,13 @@ const MessageBox = () => {
 			setTyping(false);
 		  }
 		}, timerLength);
+	}
+
+	const handleSend=(event)=>{
+		if (event.key === 'Enter') {
+			event.preventDefault(); 
+			sendMessage();
+		  }
 	}
 
   	return (
@@ -208,6 +209,8 @@ const MessageBox = () => {
 						placeholder="Type your message..."
 						value={message}
 						onChange={handleChange}
+						onKeyDown={handleSend}
+						
 						/>
 					</div>
 					<FaPaperPlane className={styles.vectorIcon1} onClick={sendMessage} />

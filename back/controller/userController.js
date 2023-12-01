@@ -57,7 +57,7 @@ async authUser(req,res){
       // console.log(response);
       
       if(response===null){
-          return res.json({success:false,msg:"user does not exist"});
+          return res.status(403).json({success:false,msg:"user does not exist"});
       }else{
           //comapre with previously set credentials
           const match=bcrypt.compareSync(req.body.password,response.password);

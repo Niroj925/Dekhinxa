@@ -69,70 +69,56 @@ const io=new Server(server,{
 
 let users = []; 
  let loginUsers=[];
- let loggedUsers=[];
 
 io.on('connection',(socket)=>{
-    console.log(`user connected to socket.io`);
+    // console.log(`user connected to socket.io`);
 
     //listen event
      socket.on('setup',(userData)=>{
-       console.log(userData);
+      //  console.log(userData);
        if(userData!==null){
         users.push(userData);
        }    
       loginUsers = [...new Set(users)];
        socket.join(userData);
        socket.emit("connected")
-       console.log('users:'+users)
-      console.log('logged users:'+loginUsers)
+      //  console.log('users:'+users)
+      // console.log('logged users:'+loginUsers)
         // send the updated list of logged-in users to all connected sockets
     //broadcast to the all connection
     io.emit('user list',loginUsers)
     })
 
-    socket.on('logged user',(userId)=>{
-      console.log(userId);
-
-      if(userData!==null){
-        users.push(userId);
-       }   
-       loggedUsers = [...new Set(users)];
-
-
-       io.emit('logIn user',loggedUsers);
-
-    })
-
     socket.on('join chat',(room)=>{
         //id of the room 
         socket.join(room)
-        console.log('user joined room:'+room);
+        // console.log('user joined room:'+room);
     })
 
     socket.on('typing',(room)=>{
-      console.log('typing ');
+      // console.log('typing ');
       socket.to(room).emit('typing');
     })
 
     socket.on('stop typing',(room)=>
     {
-      console.log('stopped');
+      // console.log('stopped');
       socket.to(room).emit('stop typing')
     })
 
 
     socket.on('new message',(newMessageReceived)=>{
-      console.log('message received:')
-      console.log(newMessageReceived)
-      console.log('user:');
-      console.log(newMessageReceived.chat.user)
+      // console.log('message received:')
+      // console.log(newMessageReceived)
+      // console.log('user:');
+      // console.log(newMessageReceived.chat.user)
       var chat=newMessageReceived.chat;
-      console.log(chat._id)
+      // console.log(chat._id)
       if(!chat || !chat.user) return console.log('chat.user not defined');
     
       chat.user.forEach((usr)=>{
         if(usr._id == newMessageReceived.sender._id) return ;
-        console.log(usr.name);
+        // console.log(usr.name);
         socket.to(chat._id).emit('message received',newMessageReceived)
       })
     })
@@ -142,15 +128,15 @@ io.on('connection',(socket)=>{
       users = users.filter(item => item !== usrid);
 
       const index = loginUsers.indexOf(usrid);
-    console.log(index)
-    console.log('userid:'+usrid)
+    // console.log(index)
+    // console.log('userid:'+usrid)
     if (index !== -1) {
       loginUsers.splice(index, 1);
     }
 
-  console.log('users:'+users);
+  // console.log('users:'+users);
   // loginUsers = [...new Set(loginUsers.map(user => user.id))];
-    console.log('loged usr:'+loginUsers)
+    // console.log('loged usr:'+loginUsers)
 
     io.emit('user list',loginUsers)
 
@@ -158,7 +144,7 @@ io.on('connection',(socket)=>{
 
 
     socket.on('disconnect', (userData) => {
-      console.log('user disconnected');
+      // console.log('user disconnected');
       // console.log(userData)
       socket.leave(userData);
       

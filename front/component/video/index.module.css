@@ -34,7 +34,7 @@
 }
 .iconVideo5 {
     position: relative;
-    width: 4.5rem;
+    width: 3.4rem;
     height: 3.34rem;
     color: rgba(250, 30, 96, 0.74);
 }
@@ -62,12 +62,13 @@
 }
 .friendsContainer2 {
     position: absolute;
-    top: 6.38rem;
+    top: 3.38rem;
     left: calc(50% - 273px);
     background-color: rgba(255, 255, 255, 0.04);
     width: 34.06rem;
-    height: 100%;
+    height: 34.0rem;
     overflow: hidden;
+    overflow-y: scroll;
 }
 .videoCall {
     position: relative;
@@ -91,38 +92,29 @@
         height: 3.25rem;
         z-index: 0;
   }
+
   .iconPerson5 {
-        position: absolute;
-        margin: 0 !important;
-        top: calc(50% - 17.69px);
-        left: calc(50% - 16.31px);
-        width: 1.95rem;
-        height: 1.95rem;
-        z-index: 1;
-  }
-  .ellipseParent {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: relative;
-        gap: 0.43rem;
-  }
+    position: absolute;
+    margin: 0 !important;
+    height: 60%;
+    width: 60%;
+    top: 16%;
+    right: 21.33%;
+    bottom: 24%;
+    left: 18.67%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    z-index: 0;
+}
+ 
   .frameWrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
   }
-  .nirojThapa {
-        position: relative;
-  }
-  .iconVideo5 {
-        position: relative;
-        width: 2.6rem;
-        height: 1.63rem;
-        color: rgba(250, 30, 96, 0.74);
-  }
+ 
   .frameParent {
         border-radius: 13.88px;
         background-color: rgba(120, 139, 157, 0.49);
@@ -151,8 +143,9 @@
         left: calc(50% - 189px);
         background-color: rgba(255, 255, 255, 0.04);
         width: 23.64rem;
-        height: 100%;
+        height: 31rem;
         overflow: hidden;
+        overflow-y: scroll;
   }
   .videoCall {
         position: relative;

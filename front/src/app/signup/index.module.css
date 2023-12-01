@@ -73,7 +73,7 @@
 .frameParent {
     margin: 0 !important;
     position: absolute;
-    top: 3.04rem;
+    top: 2.04rem;
     left: 2.95rem;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
 }
 .createAnAccountParent {
     position: absolute;
-    top: 5.97rem;
+    top: 4.19rem;
     left: calc(50% - 203.65px);
     display: flex;
     flex-direction: column;

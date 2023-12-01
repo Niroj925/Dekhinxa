@@ -32,27 +32,27 @@ const Login = () => {
 		  "email":email,
 		  "password":password
 		}
+		try{
 		const res=await api.post('/api/user/login',data);
 	
-		// console.log(res);
-		if(res){     
-		  toast.success('Successfully login', {
-			position: "bottom-right",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "light",
-			});
-			localStorage.setItem('token', JSON.stringify(res.data.token));
-			const userid=res.data._id;
-			localStorage.setItem('userid', JSON.stringify(res.data._id));
-			router.push(`/dashboard?userid=${userid}`); 
-		  }
-			else{
-			  toast.error("Unable to login", {
+		if(res) {
+				toast.success('Successfully login', {
+					position: "bottom-right",
+					autoClose: 3000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+					});
+					localStorage.setItem('token', JSON.stringify(res.data.token));
+					const userid=res.data._id;
+					localStorage.setItem('userid', JSON.stringify(res.data._id));
+					router.push(`/dashboard?userid=${userid}`); 
+				}
+		}catch(err){
+			toast.error("Invalid email or password", {
 				position: "bottom-right",
 				autoClose: 3000,
 				hideProgressBar: false,
@@ -65,7 +65,8 @@ const Login = () => {
 				setTimeout(() => {
 				  router.push('/login');
 				}, 3000);
-			}
+			console.log(err);
+		}
 		setEmail('');
 		setPassword('');
 	  };

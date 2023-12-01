@@ -29,7 +29,6 @@ const ConnectedFriends = () => {
 	const dispatch=useDispatch();
 
 	useEffect(()=>{
-		console.log('userid:',userid);
 
 		socket=io(ENDPOINT);
 		socket.emit('setup',userid);
@@ -56,7 +55,7 @@ const ConnectedFriends = () => {
 			}
 		  );
 	
-		  console.log(response)
+		//   console.log(response)
 		setFriends(response.data);
 	    setFilterFriends(response.data);
 		response.status==200? "":(router.push('/login'));
@@ -65,15 +64,15 @@ const ConnectedFriends = () => {
 	   router.push('/login');
 	  console.log(error)
 	 }	  
-	 console.log('socket connected');
+	//  console.log('socket connected');
 
 	 socket.on('user list', (users) => {
-		// update the UI to display the list of logged-in users
-		console.log('response from websocket')
-		console.log(users)
+	
+		// console.log('response from websocket')
+		// console.log(users)
 		setLoggedInUsers(users);
-		console.log("logged in users");
-		console.log(loggedInUsers);
+		// console.log("logged in users");
+		// console.log(loggedInUsers);
 	  });
 	   }
 	

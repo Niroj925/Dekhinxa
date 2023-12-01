@@ -141,7 +141,7 @@
 
 .frameParent {
     position: absolute;
-    top: 9.66rem;
+    top: 4.66rem;
     left: calc(50% + 63.45px);
     display: flex;
     flex-direction: column;

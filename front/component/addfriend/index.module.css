@@ -50,7 +50,7 @@ font-size: medium;
 .frameParent {
     border-radius: 20px;
     background-color: rgba(120, 139, 157, 0.49);
-    width: 100%;
+    width: 32rem;
     height: 5.63rem;
     display: flex;
     flex-direction: row;
@@ -165,21 +165,21 @@ font-size: medium;
         position: relative;
         gap: 0.37rem;
   }
-  .nirojThapa {
-        position: relative;
-  }
-  .vectorIcon{
-        position: relative;
-        width: 2.22rem;
-        height: 1.94rem;
-        color: rgba(250, 30, 96, 0.74);
-  }
-  .iconVideo5 {
-        position: relative;
-        width: 3.22rem;
-        height: 2.39rem;
-        color: rgba(250, 30, 96, 0.74);
-  }
+
+  .frameParent {
+    border-radius: 20px;
+    background-color: rgba(120, 139, 157, 0.49);
+    width: 19.5rem;
+    height: 5.63rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.56rem 0.81rem;
+    box-sizing: border-box;
+    gap: 2.88rem;
+}
+
   .frameParent {
         border-radius: 11.83px;
         background-color: rgba(120, 139, 157, 0.49);
@@ -192,6 +192,7 @@ font-size: medium;
         box-sizing: border-box;
         gap: 1.7rem;
   }
+
   .friends {
         position: absolute;
         top: 1.29rem;
@@ -201,6 +202,8 @@ font-size: medium;
         align-items: flex-start;
         justify-content: flex-start;
         gap: 1.55rem;
+
+        
   }
   .friendsContainer2 {
         position: absolute;
@@ -208,8 +211,9 @@ font-size: medium;
         left: calc(50% - 180px);
         background-color: rgba(255, 255, 255, 0.04);
         width: 22.19rem;
-        height: 100%;
+        height: 30rem;
         overflow: hidden;
+        overflow-y: scroll;
   }
   .connectedFriendsChild {
         position: absolute;

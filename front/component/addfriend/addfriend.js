@@ -94,6 +94,10 @@ const ConnectedFriends = () => {
 		}
 	  );
 	//   console.log(response) 
+	  if(response){
+		getFriends();
+	    getMyFriend();
+	  }
 	} catch (error) { 
   console.log(error)
  }    
