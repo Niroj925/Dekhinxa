@@ -69,6 +69,7 @@ const io=new Server(server,{
 
 let users = []; 
  let loginUsers=[];
+ let loggedUsers=[];
 
 io.on('connection',(socket)=>{
     console.log(`user connected to socket.io`);
@@ -89,6 +90,19 @@ io.on('connection',(socket)=>{
     io.emit('user list',loginUsers)
     })
 
+    socket.on('logged user',(userId)=>{
+      console.log(userId);
+
+      if(userData!==null){
+        users.push(userId);
+       }   
+       loggedUsers = [...new Set(users)];
+
+
+       io.emit('logIn user',loggedUsers);
+
+    })
+
     socket.on('join chat',(room)=>{
         //id of the room 
         socket.join(room)
@@ -97,7 +111,7 @@ io.on('connection',(socket)=>{
 
     socket.on('typing',(room)=>{
       console.log('typing ');
-      socket.to(room).emit('typing')
+      socket.to(room).emit('typing');
     })
 
     socket.on('stop typing',(room)=>

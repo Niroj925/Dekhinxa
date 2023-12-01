@@ -29,14 +29,18 @@ const ConnectedFriends = () => {
 	const dispatch=useDispatch();
 
 	useEffect(()=>{
-		socket=io(ENDPOINT);
-		socket.on('connected',()=>setSocketConnected(true));
+		console.log('userid:',userid);
 
-	  },[])
+		socket=io(ENDPOINT);
+		socket.emit('setup',userid);
+		// socket.on('connected',()=>setSocketConnected(true));
+        
+	  },[userid])
     
 	// console.log(userid);
 
     const router=useRouter();
+
 
 	const getFriend=async ()=>{
 
@@ -62,10 +66,10 @@ const ConnectedFriends = () => {
 	  console.log(error)
 	 }	  
 	 console.log('socket connected');
-    console.log(socketConnected);
 
 	 socket.on('user list', (users) => {
 		// update the UI to display the list of logged-in users
+		console.log('response from websocket')
 		console.log(users)
 		setLoggedInUsers(users);
 		console.log("logged in users");
@@ -75,7 +79,7 @@ const ConnectedFriends = () => {
 	
 	 useEffect(()=>{
 		getFriend();
-	 },[])
+	 },[loggedInUsers,userid])
 
 	 useEffect(() => {
 		if (searchFriend.trim() === '') {
@@ -106,7 +110,9 @@ const ConnectedFriends = () => {
 								friends&&(
 									filterFriends.map((frn,index)=>(
 										<div className={styles.frameParent} key={index}>
-										<div className={styles.ellipseParent}>
+										<div className={ loggedInUsers.includes((userid==frn.user[0]._id)?frn.user[1]._id:frn.user[0]._id)
+											?styles.ellipseParentCircle:styles.ellipseParent}>
+											{/* <div className={styles.ellipseParentCircle}> */}
 											  <div className={styles.frameChild} >
 												
 											<FaUserAlt className={styles.iconPerson5}/>

@@ -5,6 +5,7 @@
     width: 4.69rem;
     height: 4.69rem;
     z-index: 0;
+    
 }
 .iconPerson5 {
     position: absolute;
@@ -28,6 +29,18 @@
     position: relative;
     gap: 0.63rem;
 }
+
+.ellipseParentCircle{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: 0.63rem;
+    border-radius: 50%;
+    border: 3px solid rgba(250, 30, 96, 0.74);
+}
+
 .nirojThapa {
     position: relative;
 }
@@ -127,6 +140,7 @@
     font-family: Inter;
    
 }
+
 
 @media(max-width:650px){
     .frameChild {

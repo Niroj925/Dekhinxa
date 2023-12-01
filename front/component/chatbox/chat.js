@@ -2,7 +2,7 @@
 
 import styles from './index.module.css';
 import {FaUserAlt,FaPaperPlane} from 'react-icons/fa';
-import { useState,useEffect} from 'react';
+import { useState,useEffect,useRef} from 'react';
 import { useSelector } from 'react-redux';
 import api from '../api/api';
 import { getCookie } from '../function/function';
@@ -17,6 +17,8 @@ const MessageBox = () => {
 	const [msg,setMsg]=useState([]);
 	const [typing,setTyping]=useState(false);
 	const [isTyping,setIsTyping]=useState(false);
+
+	const msgContainerRef = useRef(null);
 
 	const activeFriend=useSelector((state)=>state.friend.activeFriend);
 
@@ -105,6 +107,18 @@ const MessageBox = () => {
 		});
 	  }, [msg]);
 
+	  useEffect(() => {
+		// Scroll to the bottom when the component mounts or when new messages arrive
+		scrollToBottom();
+	  }, [msg]);
+	
+	  const scrollToBottom = () => {
+		// Scroll to the bottom of the message container
+		if (msgContainerRef.current) {
+		  msgContainerRef.current.scrollTop = msgContainerRef.current.scrollHeight;
+		}
+	  };
+
 
 	const handleChange=(event)=>{
 		setMessage(event.target.value);
@@ -129,13 +143,13 @@ const MessageBox = () => {
 
   	return (
     		<div className={styles.messageBox}>
-      			<div className={styles.msgbox}>
-        		
+      			<div className={styles.msgbox} ref={msgContainerRef}>
+        		      <div>
 							{msg.map((m, index) => (
                             
 		                       <>
 							   {
-								(m.sender._id==userid)?(
+								(m.sender._id==userid)?(								
                                   <>
 								<div className={styles.sendtextBox} key={index}>
 							
@@ -158,6 +172,7 @@ const MessageBox = () => {
 
 							   <p className={styles.thisMessageIs8}>{m.content}</p>
 							  </div>
+
 						</div>
 									</>
 								)
@@ -167,13 +182,21 @@ const MessageBox = () => {
 
 							))}
 
-						{isTyping ? (
-							<div>
-							Typing...
+							</div>
+
+							<div className={styles.isTyping}>
+								{isTyping ? (
+							<div >
+								<p>Typing...</p>
+							
 							</div>
 						) : <></>}
-					
+							</div>
+
+								
+
       			</div>
+
 
 				  <div className={styles.frameParent2}>
 					<div className={styles.messageWrapper}>
@@ -188,10 +211,7 @@ const MessageBox = () => {
 						/>
 					</div>
 					<FaPaperPlane className={styles.vectorIcon1} onClick={sendMessage} />
-					</div>
-
-
-						
+					</div>		
     		</div>
 			);
 };

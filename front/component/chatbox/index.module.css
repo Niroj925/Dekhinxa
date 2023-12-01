@@ -52,7 +52,7 @@
     height: 23.00rem;
     /* overflow: hidden; */
     overflow-y: auto;
-    
+    padding-bottom: 2rem;
 }
 .messageBox {
     /* position: relative; */
@@ -114,6 +114,12 @@
     font-size: 20px;
   }
 
+  .isTyping{
+    margin-top: 15px;
+    margin-bottom: 4px;
+    margin-left: 15px;
+    padding: 5px;
+  }
 
 
 @media(max-width:650px){
