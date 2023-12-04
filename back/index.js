@@ -92,7 +92,7 @@ io.on('connection',(socket)=>{
     socket.on('join chat',(room)=>{
         //id of the room 
         socket.join(room)
-        // console.log('user joined room:'+room);
+        console.log('user joined room:'+room);
     })
 
     socket.on('typing',(room)=>{
@@ -122,6 +122,26 @@ io.on('connection',(socket)=>{
         socket.to(chat._id).emit('message received',newMessageReceived)
       })
     })
+    
+    socket.on('callRoom', ({ signalData, from, name, roomId }) => {
+      console.log('call room')
+      console.log(from, name, roomId);
+      // Broadcast the call to all users in the room
+      io.to(roomId).emit('callUser', { signal: signalData, from, name, roomId });
+    });
+  
+      socket.on("answerCall", (data) => {
+        console.log('answered:');
+        console.log(data.to);
+        io.to(data.to).emit("callAccepted", data.signal)
+      })
+   
+  
+    socket.on('callEnd',(data)=>{
+      console.log('call ended',data);
+       io.to(data.roomId).emit('endCall',{data});
+    })
+  
 
     socket.on('remove',(usrid)=>{
 

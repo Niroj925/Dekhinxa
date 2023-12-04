@@ -22,6 +22,8 @@ const MessageBox = () => {
 
 	const activeFriend=useSelector((state)=>state.friend.activeFriend);
 
+	console.log(activeFriend);
+
 	const key=window.location.search;
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');

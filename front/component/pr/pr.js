@@ -1,117 +1,173 @@
-import styles from './index.module.css';
+'use client'
+
+import React, { useEffect, useRef, useState } from "react";
+import Peer from "simple-peer";
+import io from "socket.io-client";
+import styles from "./index.module.css";
+import { useSelector,useDispatch } from "react-redux";
+import { setActiveComponent } from "@/app/redux/slicers/activeFriendSlice";
+
+const ENDPOINT=process.env.BACKEND_API
+var socket;
+
+export default function VideoCall() {
+  const [stream, setStream] = useState();
+  const [receivingCall, setReceivingCall] = useState(false);
+  // const [roomId, setRoomId] = useState("");
+  const [ caller, setCaller ] = useState("")
+  // const [ idToCall, setIdToCall ] = useState("")
+  const [callAccepted, setCallAccepted] = useState(false);
+  const [ callerSignal, setCallerSignal ] = useState()
+  const [callEnded, setCallEnded] = useState(false);
+  const [name, setName] = useState("");
+  const myVideo = useRef();
+  const userVideo = useRef();
+  const connectionRef = useRef();
+
+   const dispatch=useDispatch();
+
+  const activeFriend=useSelector((state)=>state.friend.activeFriend);
+
+  const key=window.location.search;
+	const urlParams=new URLSearchParams(key);
+	const userid=urlParams.get('userid');
+
+	useEffect(()=>{
+
+		socket=io(ENDPOINT);
+		socket.emit('setup',userid);
+		// socket.on('connected',()=>setSocketConnected(true));
+		socket.emit('join chat', activeFriend._id);
+        
+	  },[userid])
+
+  useEffect(() => {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+      setStream(stream);
+      if (myVideo.current) {
+        myVideo.current.srcObject = stream;
+      }
+    });
+
+    socket.on("callUser", (data) => {
+      console.log("Call users detail:", data);
+      setReceivingCall(true);
+      setName(data.name);
+      setCallerSignal(data.signal);
+      setCaller(data.from);
+    });
+
+    socket.on("endCall", (data) => {
+      console.log(data);
+      setCallEnded(true);
+
+      if (myVideo.current.srcObject) {
+        // Stop the media tracks
+        const tracks = myVideo.current.srcObject.getTracks();
+        tracks.forEach((track) => track.stop());
+        // myVideo.current.srcObject = null;
+      }
+
+      // myVideo.current.srcObject = null;
+      setTimeout(()=>{
+        dispatch(setActiveComponent('friends'));
+      },2000);
+
+    });
+  }, []);
+
+  const callRoom = () => {
+    const peer = new Peer({
+      initiator: true,
+      trickle: false,
+      stream: stream,
+    });
+
+    peer.on("signal", (data) => {
+      socket.emit("callRoom", {
+        signalData: data,
+        from: userid,
+        name: userid==activeFriend.user[0]._id?activeFriend.user[0].name:activeFriend.user[1].name,
+        roomId: activeFriend._id,
+      });
+    });
+
+    peer.on("stream", (stream) => {
+      userVideo.current.srcObject = stream;
+    });
+
+    socket.on("callAccepted", (signal) => {
+      console.log('call accepted');
+      setCallAccepted(true);
+      peer.signal(signal);
+    });
+
+    connectionRef.current = peer;
+  };
+
+  const answerCall =() =>  {
+		setCallAccepted(true)
+		const peer = new Peer({
+			initiator: false,
+			trickle: false,
+			stream: stream
+		})
+		peer.on("signal", (data) => {
+			socket.emit("answerCall", { signal: data, to: activeFriend._id })
+		})
+		peer.on("stream", (stream) => {
+			userVideo.current.srcObject = stream
+		})
+
+		peer.signal(callerSignal)
+		connectionRef.current = peer
+	}
+
+  const leaveCall = () => {
+    // setCallEnded(true);
+
+    socket.emit('callEnd',{roomId: activeFriend._id });
+  };
 
 
-const Dashboard = () => {
-  	return (
-    		<div className={styles.dashboard}>
-      			<div className={styles.dashboardChild} />
-      			<div className={styles.vectorParent}>
-        				<img className={styles.vectorIcon11} alt="" src="Vector.svg" />
-        				<img className={styles.vectorIcon11} alt="" src="Vector.svg" />
-        				<img className={styles.vectorIcon11} alt="" src="Vector.svg" />
-      			</div>
-      			<img className={styles.iconMenu1} alt="" src={`🦆 icon "menu".svg`} />
-      			<div className={styles.sidebar}>
-        				<img className={styles.cda86444f0a972baee3b78e32fRemIcon} alt="" src="695665cda86444f0a972baee3b78e32f-removebg-preview 2.png" />
-        				<div className={styles.logOutParent}>
-          					<b className={styles.logOut}>Log Out</b>
-          					<img className={styles.iconAccountLogout2} alt="" src={`🦆 icon "account logout".svg`} />
-        				</div>
-        				<div className={styles.sidebarChild} />
-        				<div className={styles.connectedFriend}>
-          					<div className={styles.ellipseParent}>
-            						<div className={styles.frameChild} />
-            						<img className={styles.iconPerson3} alt="" src={`🦆 icon "person".svg`} />
-          					</div>
-          					<b className={styles.nirojThapa}>Niroj Thapa</b>
-        				</div>
-        				<div className={styles.frameParent}>
-          					<div className={styles.frameGroup}>
-            						<div className={styles.vectorGroup}>
-              							<img className={styles.vectorIcon14} alt="" src="Vector.svg" />
-              							<div className={styles.about}>About</div>
-            						</div>
-            						<div className={styles.frameItem} />
-          					</div>
-          					<div className={styles.iconCogParent}>
-            						<img className={styles.iconCog2} alt="" src={`🦆 icon "cog".svg`} />
-            						<div className={styles.setting}>Setting</div>
-          					</div>
-          					<div className={styles.frameInner} />
-          					<div className={styles.rectangleParent}>
-            						<div className={styles.rectangleDiv} />
-            						<div className={styles.addFriends}>Add Friends</div>
-            						<img className={styles.vectorIcon15} alt="" src="Vector.svg" />
-          					</div>
-          					<div className={styles.rectangleGroup}>
-            						<div className={styles.rectangleDiv} />
-            						<div className={styles.addFriends}>Feedback</div>
-            						<img className={styles.vectorIcon15} alt="" src="Vector.svg" />
-          					</div>
-          					<div className={styles.rectangleContainer}>
-            						<div className={styles.frameChild2} />
-            						<div className={styles.details}>Details</div>
-            						<img className={styles.vectorIcon17} alt="" src="Vector.svg" />
-          					</div>
-        				</div>
-        				<div className={styles.sidebarItem} />
-      			</div>
-      			<div className={styles.maincontainer} />
-      			<div className={styles.connectedFriendParent}>
-        				<div className={styles.connectedFriend1}>
-          					<div className={styles.ellipseGroup}>
-            						<div className={styles.ellipseDiv} />
-            						<img className={styles.iconPerson3} alt="" src={`🦆 icon "person".svg`} />
-          					</div>
-        				</div>
-        				<b className={styles.nirojThapa}>Niroj Thapa</b>
-      			</div>
-      			<div className={styles.sidebar1}>
-        				<img className={styles.cda86444f0a972baee3b78e32fRemIcon} alt="" src="695665cda86444f0a972baee3b78e32f-removebg-preview 2.png" />
-        				<div className={styles.logOutParent}>
-          					<b className={styles.logOut}>Log Out</b>
-          					<img className={styles.iconAccountLogout2} alt="" src={`🦆 icon "account logout".svg`} />
-        				</div>
-        				<div className={styles.sidebarChild} />
-        				<div className={styles.connectedFriend}>
-          					<div className={styles.ellipseParent}>
-            						<div className={styles.frameChild} />
-            						<img className={styles.iconPerson3} alt="" src={`🦆 icon "person".svg`} />
-          					</div>
-          					<b className={styles.nirojThapa}>Niroj Thapa</b>
-        				</div>
-        				<div className={styles.frameParent}>
-          					<div className={styles.frameGroup}>
-            						<div className={styles.vectorGroup}>
-              							<img className={styles.vectorIcon14} alt="" src="Vector.svg" />
-              							<div className={styles.about}>About</div>
-            						</div>
-            						<div className={styles.frameItem} />
-          					</div>
-          					<div className={styles.iconCogParent}>
-            						<img className={styles.iconCog2} alt="" src={`🦆 icon "cog".svg`} />
-            						<div className={styles.setting}>Setting</div>
-          					</div>
-          					<div className={styles.frameInner} />
-          					<div className={styles.rectangleParent}>
-            						<div className={styles.rectangleDiv} />
-            						<div className={styles.addFriends}>Add Friends</div>
-            						<img className={styles.vectorIcon15} alt="" src="Vector.svg" />
-          					</div>
-          					<div className={styles.rectangleGroup}>
-            						<div className={styles.rectangleDiv} />
-            						<div className={styles.addFriends}>Feedback</div>
-            						<img className={styles.vectorIcon15} alt="" src="Vector.svg" />
-          					</div>
-          					<div className={styles.rectangleContainer}>
-            						<div className={styles.frameChild2} />
-            						<div className={styles.details}>Details</div>
-            						<img className={styles.vectorIcon17} alt="" src="Vector.svg" />
-          					</div>
-        				</div>
-        				<div className={styles.sidebarItem} />
-      			</div>
-    		</div>);
-};
-
-export default Dashboard;
+  return (
+    <>
+    <div className={styles.videoContainer}>
+      <div className={styles.myVideoWrapper}>
+        {stream && (
+        <video playsInline muted ref={myVideo} autoPlay className={styles.myVideo} />
+        )}
+      </div>
+      <div className={styles.friendVideoWrapper}>
+        {callAccepted && !callEnded ? (
+          <video playsInline ref={userVideo} autoPlay className={styles.friendVideo} />
+        ) : null}
+      </div>
+    </div>
+  
+    <br/>
+      <div className={styles.callButton}>
+        {callAccepted && !callEnded ? (
+          	<div className={styles.joinNowParent} onClick={leaveCall}>
+              <b className={styles.joinNow} >End Now</b>
+            </div>
+        ) : (
+          <div className={styles.joinNowParent} onClick={callRoom}>
+          <b className={styles.joinNow} >Call Now</b>
+        </div>
+        )}
+      </div>
+   
+    <div>
+      {receivingCall && !callAccepted && userid!=caller? (
+        <div className={styles.callerWrapper}>
+          <h2 className={styles.caller}>{name} is calling...</h2>
+          <div className={styles.answerCall} onClick={answerCall}>
+              <b className={styles.joinNow} >Answer</b>
+            </div>
+        </div>
+      ) : null}
+    </div>
+  </>
+  );
+}

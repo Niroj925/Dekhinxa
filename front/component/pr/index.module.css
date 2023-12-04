@@ -1,347 +1,159 @@
-.dashboardChild {
-    position: absolute;
-    width: 100%;
-    top: 7.31rem;
-    right: 0%;
-    left: 0%;
-    background-color: #8c8a8a;
-    height: 0.13rem;
-}
-.vectorIcon11 {
-    position: relative;
-    width: 2.12rem;
-    height: 1.69rem;
-}
-.vectorParent {
-    position: absolute;
-    width: 47.07%;
-    top: 2.44rem;
-    right: 32.89%;
-    left: 20.05%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-.iconMenu1 {
-    position: absolute;
-    height: 3.4%;
-    top: 3.81%;
-    bottom: 92.79%;
-    left: 1.5rem;
-    max-height: 100%;
-    width: 1.72rem;
-}
-.cda86444f0a972baee3b78e32fRemIcon {
-    position: absolute;
-    top: 2.38rem;
-    left: 2.19rem;
-    width: 4.17rem;
-    height: 3.95rem;
-    object-fit: cover;
-}
-.logOut {
-    position: relative;
-    display: inline-block;
-    width: 6.56rem;
-    flex-shrink: 0;
-}
-.iconAccountLogout2 {
-    position: relative;
-    width: 2.5rem;
-    height: 2.05rem;
-}
-.logOutParent {
-    position: absolute;
-    top: 3.38rem;
-    left: 8.75rem;
-    width: 7.25rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.67rem;
-}
-.sidebarChild {
-    position: absolute;
-    top: 7.63rem;
-    left: 0.19rem;
-    background-color: #8c8a8a;
-    width: 21.69rem;
-    height: 0.13rem;
-}
-.frameChild {
-    position: relative;
-    border-radius: 50%;
-    background-color: #7a8182;
-    width: 5.55rem;
-    height: 5.55rem;
-    z-index: 0;
-}
-.iconPerson3 {
-    position: absolute;
-    margin: 0 !important;
-    height: 60%;
-    width: 60%;
-    top: 16%;
-    right: 21.33%;
-    bottom: 24%;
-    left: 18.67%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    z-index: 1;
-}
-.ellipseParent {
-    width: 5.55rem;
-    height: 5.55rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-    gap: 0.56rem;
-}
-.nirojThapa {
-    position: relative;
-}
-.connectedFriend {
-    position: absolute;
-    top: 10.94rem;
-    left: 6.38rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.28rem;
-}
-.vectorIcon14 {
-    position: relative;
-    width: 2.5rem;
-    height: 2.5rem;
-}
-.about {
-    position: relative;
-    font-weight: 600;
-}
-.vectorGroup {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2.11rem;
-}
-.frameItem {
-    position: relative;
-    background-color: #8c8a8a;
-    width: 21.66rem;
-    height: 0.17rem;
-}
-.frameGroup {
-    position: absolute;
-    top: 18.77rem;
-    left: 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.11rem;
-}
-.iconCog2 {
-    position: absolute;
-    height: 74.63%;
-    width: 12.72%;
-    top: 0%;
-    right: 62.09%;
-    bottom: 25.37%;
-    left: 25.19%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-}
-.setting {
-    position: absolute;
-    top: 0.56rem;
-    left: 9.66rem;
-    font-weight: 600;
-}
-.iconCogParent {
-    position: absolute;
-    top: 9.16rem;
-    left: 0.11rem;
-    width: 21.83rem;
-    height: 3.72rem;
-}
-.frameInner {
-    position: absolute;
-    top: 12.88rem;
-    left: 0.13rem;
-    background-color: #8c8a8a;
-    width: 21.66rem;
-    height: 0.17rem;
-}
-.rectangleDiv {
-    position: absolute;
-    top: 3.44rem;
-    left: 0rem;
-    background-color: #8c8a8a;
-    width: 21.66rem;
-    height: 0.17rem;
-}
-.addFriends {
-    position: absolute;
-    top: 0.22rem;
-    left: 9.66rem;
-    font-weight: 600;
-}
-.vectorIcon15 {
-    position: absolute;
-    height: 61.54%;
-    width: 10.26%;
-    top: 0%;
-    right: 64.36%;
-    bottom: 38.46%;
-    left: 25.38%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-}
-.rectangleParent {
-    position: absolute;
-    top: 0rem;
-    left: 0.11rem;
-    width: 21.66rem;
-    height: 3.61rem;
-}
-.rectangleGroup {
-    position: absolute;
-    top: 13.94rem;
-    left: 0.11rem;
-    width: 21.66rem;
-    height: 3.61rem;
-}
-.frameChild2 {
-    position: absolute;
-    top: 3.44rem;
-    left: 0rem;
-    background-color: #8c8a8a;
-    width: 21.66rem;
-    height: 0.13rem;
-}
-.details {
-    position: absolute;
-    top: 0rem;
-    left: 9.66rem;
-    font-weight: 600;
-}
-.vectorIcon17 {
-    position: absolute;
-    height: 55.38%;
-    width: 12.82%;
-    top: 9.23%;
-    right: 61.79%;
-    bottom: 35.38%;
-    left: 25.38%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-}
-.rectangleContainer {
-    position: absolute;
-    top: 4.72rem;
-    left: 0.11rem;
-    width: 21.66rem;
-    height: 3.61rem;
-}
-.frameParent {
-    position: absolute;
-    top: 23.06rem;
-    left: 0.19rem;
-    width: 21.69rem;
-    height: 22.56rem;
-    font-size: 1.67rem;
-}
-.sidebarItem {
-    position: absolute;
-    top: 19.63rem;
-    left: 0.25rem;
-    background-color: #8c8a8a;
-    width: 21.69rem;
-    height: 0.19rem;
-}
-/* .sidebar {
-    position: absolute;
-    top: 0rem;
-    left: -0.25rem;
-    background-color: #1e4b55;
-    width: 21.88rem;
-    height: 64rem;
-    overflow: hidden;
-    display: none;
-} */
-.sidebar{
-    display: none;
-}
-.maincontainer {
-    position: absolute;
-    top: 7.44rem;
-    left: 0rem;
-    width: 30.25rem;
-    height: 56.56rem;
-    overflow: hidden;
-}
-.ellipseDiv {
-    position: relative;
-    border-radius: 50%;
-    background-color: #7a8182;
-    width: 4.69rem;
-    height: 4.69rem;
-    z-index: 0;
-}
-.ellipseGroup {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-    gap: 0.63rem;
-}
-.connectedFriend1 {
-    width: 4.69rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-.connectedFriendParent {
-    position: absolute;
-    top: 0.56rem;
-    left: 22.06rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.31rem;
-    font-size: 1.25rem;
-}
-.sidebar1 {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    background-color: #1e4b55;
-    width: 21rem;
-    height: 64rem;
-    overflow: hidden;
-}
-.dashboard {
-    position: relative;
-    background-color: rgba(84, 95, 96, 0.49);
-    width: 100%;
-    height: 64rem;
-    overflow: hidden;
-    text-align: left;
-    font-size: 1.39rem;
-    color: #fff;
-    font-family: Inter;
+
+.joinNowParent {
+  position: absolute;
+  top: 31.88rem;
+  left: 36rem;
+  border-radius: 23.55px;
+  background-color:rgba(189, 45, 88, 0.74);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.72rem 0.7rem;
+  gap: 1.21rem;
+  font-size: 1.3rem;
+  
 }
 
+.joinNowParent:hover{
+  cursor: pointer;
+  background-color:rgba(224, 14, 77, 0.74);
+}
+
+.videoContainer {
+	display: flex;
+  width: 100%;
+}
+
+/* .myVideoWrapper{
+  top:-5.2rem;
+} */
+
+
+.myVideo{
+  width:11rem;
+  height:9rem;
+  margin-left: 0.5rem;
+}
+
+.friendVideo{
+  width:50rem;
+  height:34rem;
+  margin-top:1rem;
+  margin-left: 1.5rem;
+}
+
+/* .callerWrapper{
+  display: flex;
+} */
+
+.caller{
+  top: 45.88rem;
+  left: 30rem;
+}
+
+.answerCall{
+  position: absolute;
+  top: 31.88rem;
+  left: 45rem;
+  border-radius: 23.55px;
+  background-color:rgba(52, 136, 41, 0.74);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.72rem 0.7rem;
+  gap: 1.21rem;
+  font-size: 1.3rem;
+}
+.answerCall:hover{
+  cursor: pointer;
+  background-color:rgba(28, 189, 6, 0.74);
+}
+
+
+
+  @media(max-width:650px){
+    
+    .videoContainer {
+       display: flex;
+      flex-direction: column; 
+      /* width: 100%;  */
+    }
+    
+    .myVideoWrapper {
+      display: flex;
+     justify-content: flex-start;
+    }
+    
+    .myVideo {
+      width: 10rem;
+      height: auto;
+      margin-top: -20rem;
+      margin-left: 2rem;
+    }
+    
+    .friendVideoWrapper {
+      display: flex;
+      width: 100%;
+      height: auto;
+      margin-top: -5rem;
+      border: 2px solid white;
+      justify-content: center;
+    }
+
+    .friendVideo{
+      width: 90%;
+      height:auto;
+      margin: 2px;
+    }
+    
+
+    .joinNowParent {
+      position: absolute;
+      top: 37.88rem;
+      left:calc(35%);
+      border-radius: 23.55px;
+      background-color:rgba(189, 45, 88, 0.74);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0.72rem 0.7rem;
+      gap: 1.21rem;
+      font-size: 1.3rem;
+      
+    }
+    
+    .joinNowParent:hover{
+      cursor: pointer;
+      background-color:rgba(224, 14, 77, 0.74);
+    }
+    .answerCall{
+      position: absolute;
+      top: 37.88rem;
+      left: calc(60%);
+      border-radius: 23.55px;
+      background-color:rgba(52, 136, 41, 0.74);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0.72rem 0.7rem;
+      gap: 1.21rem;
+      font-size: 1.3rem;
+    }
+    .answerCall:hover{
+      cursor: pointer;
+      background-color:rgba(28, 189, 6, 0.74);
+    }
+  
+    
+  }
+  
+ 
+  

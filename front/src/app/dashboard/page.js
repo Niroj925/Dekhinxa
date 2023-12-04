@@ -13,6 +13,7 @@ import Friends from '../../../component/friends/friends';
 import Chatbox from '../../../component/chatbox/chat';
 import VideoCall from '../../../component/video/video';
 import AddFriend from '../../../component/addfriend/addfriend';
+import Pr from '../../../component/pr/pr';
 import {useSelector,useDispatch} from 'react-redux';
 import { setActiveComponent,logout} from '@/app/redux/slicers/activeFriendSlice';
 import io from 'socket.io-client';
@@ -180,7 +181,8 @@ const Dashboard = () => {
       <div className={styles.maincontainer}>
         {activeComponent === 'friends' && <Friends />}
         {activeComponent === 'chatbox' && <Chatbox />}
-        {activeComponent === 'videoCall' && <VideoCall />}
+        {/* {activeComponent === 'videoCall' && <VideoCall />} */}
+		{activeComponent === 'videoCall' && <Pr />}
 		{activeComponent === 'addFriend' && <AddFriend/>}
 
       </div>

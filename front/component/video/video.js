@@ -1,8 +1,33 @@
+'use client'
 import styles from './index.module.css';
 import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
 import {FaUserAlt,FaSignOutAlt} from 'react-icons/fa'
+import { useState,useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import io from "socket.io-client";
+
+const ENDPOINT=process.env.BACKEND_API
+var socket;
 
 const VideoCall = () => {
+
+	const activeFriend=useSelector((state)=>state.friend.activeFriend);
+
+	console.log(activeFriend);
+
+  const key=window.location.search;
+	const urlParams=new URLSearchParams(key);
+	const userid=urlParams.get('userid');
+
+	useEffect(()=>{
+
+		socket=io(ENDPOINT);
+		socket.emit('setup',userid);
+		// socket.on('connected',()=>setSocketConnected(true));
+		socket.emit('join chat', activeFriend._id);
+        
+	  },[userid])
+
   	return (
     		<div className={styles.videoCall}>
       			<div className={styles.friendsContainer2}>
