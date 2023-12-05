@@ -69,9 +69,10 @@ export default function VideoCall() {
       }
 
       // myVideo.current.srcObject = null;
+      
       setTimeout(()=>{
         dispatch(setActiveComponent('friends'));
-      },2000);
+      },500);
 
     });
   }, []);
@@ -152,9 +153,15 @@ export default function VideoCall() {
               <b className={styles.joinNow} >End Now</b>
             </div>
         ) : (
-          <div className={styles.joinNowParent} onClick={callRoom}>
-          <b className={styles.joinNow} >Call Now</b>
-        </div>
+            receivingCall?(
+              <div className={styles.joinNowParent} onClick={leaveCall}>
+              <b className={styles.joinNow} >End Now</b>
+            </div>
+            ):(
+              <div className={styles.joinNowParent} onClick={callRoom}>
+              <b className={styles.joinNow} >Call Now</b>
+            </div>
+            )
         )}
       </div>
    
