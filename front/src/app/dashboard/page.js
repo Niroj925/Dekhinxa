@@ -50,9 +50,22 @@ const Dashboard = () => {
 
 	useEffect(()=>{
 		socket=io(ENDPOINT);
-		// socket.emit('setup',userid);
 		socket.on('connected',()=>setSocketConnected(true));
-	  },[])
+
+			socket.emit('userRoom',{
+			userId:userid
+		      });
+		socket.on('incomingCall',(data)=>{
+			console.log('incoming call');
+			console.log(data);
+			console.log(data.userId,userid);
+			if(data.userId==userid)
+			{
+			 dispatch(setActiveComponent('videoCall'));
+			}
+		})
+		
+	  },[userid])
 
 	
 	function getCookie(cookieName) {

@@ -78,6 +78,12 @@ export default function VideoCall() {
   }, []);
 
   const callRoom = () => {
+
+    socket.emit("sendCall", {
+      userId: userid === activeFriend.user[0]._id ? activeFriend.user[1]._id: activeFriend.user[0]._id,
+      name: userid === activeFriend.user[0]._id ? activeFriend.user[0].name : activeFriend.user[1].name,
+    });
+
     const peer = new Peer({
       initiator: true,
       trickle: false,

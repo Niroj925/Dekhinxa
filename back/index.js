@@ -141,6 +141,21 @@ io.on('connection',(socket)=>{
       console.log('call ended',data);
        io.to(data.roomId).emit('endCall',{data});
     })
+
+
+     socket.on('userRoom',(data)=>{
+      socket.join(data.userId);
+      console.log('user room joined:',data.userId);
+      
+     })
+
+     socket.on('sendCall',(data)=>{
+      console.log('incomming call');
+      console.log(data);
+      io.to(data.userId).emit("incomingCall",{ userId:data.userId, name:data.name});
+     })
+      
+
   
 
     socket.on('remove',(usrid)=>{
