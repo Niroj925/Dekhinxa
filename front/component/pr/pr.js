@@ -13,7 +13,7 @@ var socket;
 export default function VideoCall() {
   const [stream, setStream] = useState();
   const [receivingCall, setReceivingCall] = useState(false);
-  // const [roomId, setRoomId] = useState("");
+  const [socketConnected,setSocketConnected]=useState(false);
   const [ caller, setCaller ] = useState("")
   // const [ idToCall, setIdToCall ] = useState("")
   const [callAccepted, setCallAccepted] = useState(false);
@@ -27,27 +27,32 @@ export default function VideoCall() {
    const dispatch=useDispatch();
 
   const activeFriend=useSelector((state)=>state.friend.activeFriend);
+  // const roomId=useSelector((state)=>state.friend.roomId);
 
   const key=window.location.search;
 	const urlParams=new URLSearchParams(key);
 	const userid=urlParams.get('userid');
-
+  
 	useEffect(()=>{
 
 		socket=io(ENDPOINT);
 		socket.emit('setup',userid);
-		// socket.on('connected',()=>setSocketConnected(true));
-		socket.emit('join chat', activeFriend._id);
-        
+		socket.on('connected',()=>setSocketConnected(true));
+     
+    activeFriend&&socket.emit('join chat', activeFriend._id);
+      
 	  },[userid])
 
   useEffect(() => {
+
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
       setStream(stream);
       if (myVideo.current) {
         myVideo.current.srcObject = stream;
       }
     });
+    // console.log('roomid:',roomId);
+    console.log(socketConnected);
 
     socket.on("callUser", (data) => {
       console.log("Call users detail:", data);
@@ -61,16 +66,13 @@ export default function VideoCall() {
       console.log(data);
       setCallEnded(true);
 
-      if (myVideo.current.srcObject) {
-        // Stop the media tracks
+      if (myVideo.current && myVideo.current.srcObject) {
         const tracks = myVideo.current.srcObject.getTracks();
         tracks.forEach((track) => track.stop());
-        // myVideo.current.srcObject = null;
+        myVideo.current.srcObject = null;
       }
-
-      // myVideo.current.srcObject = null;
-      
-      setTimeout(()=>{
+      setTimeout(()=>{  
+        // window.location.reload(); 
         dispatch(setActiveComponent('friends'));
       },500);
 
@@ -79,10 +81,11 @@ export default function VideoCall() {
 
   const callRoom = () => {
 
-    socket.emit("sendCall", {
-      userId: userid === activeFriend.user[0]._id ? activeFriend.user[1]._id: activeFriend.user[0]._id,
-      name: userid === activeFriend.user[0]._id ? activeFriend.user[0].name : activeFriend.user[1].name,
-    });
+    // socket.emit("sendCall", {
+    //   userId: userid === activeFriend.user[0]._id ? activeFriend.user[1]._id: activeFriend.user[0]._id,
+    //   name: userid === activeFriend.user[0]._id ? activeFriend.user[0].name : activeFriend.user[1].name,
+    //   roomId:activeFriend._id
+    // });
 
     const peer = new Peer({
       initiator: true,
@@ -113,6 +116,7 @@ export default function VideoCall() {
   };
 
   const answerCall =() =>  {
+    console.log('roomid:',activeFriend._id);
 		setCallAccepted(true)
 		const peer = new Peer({
 			initiator: false,
@@ -120,20 +124,28 @@ export default function VideoCall() {
 			stream: stream
 		})
 		peer.on("signal", (data) => {
-			socket.emit("answerCall", { signal: data, to: activeFriend._id })
+			socket.emit("answerCall", { signal: data, to:activeFriend._id })
 		})
 		peer.on("stream", (stream) => {
 			userVideo.current.srcObject = stream
 		})
+  
+        // peer.signal(callerSignal);
 
-		peer.signal(callerSignal)
+        if (callerSignal) {
+          peer.signal(callerSignal);
+        } else {
+          console.error("Invalid or missing callerSignal.");
+        }
+   
 		connectionRef.current = peer
 	}
 
   const leaveCall = () => {
     // setCallEnded(true);
 
-    socket.emit('callEnd',{roomId: activeFriend._id });
+    socket.emit('callEnd',{roomId: activeFriend._id});
+
   };
 
 

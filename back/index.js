@@ -152,11 +152,8 @@ io.on('connection',(socket)=>{
      socket.on('sendCall',(data)=>{
       console.log('incomming call');
       console.log(data);
-      io.to(data.userId).emit("incomingCall",{ userId:data.userId, name:data.name});
+      io.to(data.userId).emit("incomingCall",{userId:data.userId,frnInfo:data.frnInfo});
      })
-      
-
-  
 
     socket.on('remove',(usrid)=>{
 

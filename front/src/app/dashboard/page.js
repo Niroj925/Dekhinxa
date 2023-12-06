@@ -15,7 +15,7 @@ import VideoCall from '../../../component/video/video';
 import AddFriend from '../../../component/addfriend/addfriend';
 import Pr from '../../../component/pr/pr';
 import {useSelector,useDispatch} from 'react-redux';
-import { setActiveComponent,logout} from '@/app/redux/slicers/activeFriendSlice';
+import { setActiveComponent,setRoomId,logout, setActiveFriend} from '@/app/redux/slicers/activeFriendSlice';
 import io from 'socket.io-client';
 
 const ENDPOINT=process.env.BACKEND_API;
@@ -28,6 +28,12 @@ const Dashboard = () => {
 	const [username,setUsername]=useState('');
 	const [socketConnected,setSocketConnected]=useState(false);
 
+	const [receivingCall, setReceivingCall] = useState(false);
+	const [ caller, setCaller ] = useState("")
+	// const [ idToCall, setIdToCall ] = useState("")
+	const [ callerSignal, setCallerSignal ] = useState()
+	const [name, setName] = useState("");
+
 	const router=useRouter();
 	const dispatch=useDispatch();
 
@@ -39,7 +45,7 @@ const Dashboard = () => {
     const activeComponent=useSelector((state)=>state.friend.activeComponent);
 
 
-	console.log(activeFriend);
+	// console.log(activeFriend);
 	// console.log(ActiveComponent);
 	console.log(activeComponent);
 
@@ -55,15 +61,29 @@ const Dashboard = () => {
 			socket.emit('userRoom',{
 			userId:userid
 		      });
+
 		socket.on('incomingCall',(data)=>{
 			console.log('incoming call');
 			console.log(data);
 			console.log(data.userId,userid);
+			    
 			if(data.userId==userid)
 			{
-			 dispatch(setActiveComponent('videoCall'));
+				socket.emit('join chat',data._id);
+				dispatch(setActiveFriend(data.frnInfo));
+				dispatch(setActiveComponent('videoCall'));
+			    
 			}
 		})
+
+		// socket.on("callUser", (data) => {
+		// 	console.log("Call users detail:", data);
+		// 	setReceivingCall(true);
+		// 	setName(data.name);
+		// 	setCallerSignal(data.signal);
+		// 	setCaller(data.from);
+		//   });
+	  
 		
 	  },[userid])
 

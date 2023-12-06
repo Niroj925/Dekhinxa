@@ -19,7 +19,6 @@ const ConnectedFriends = () => {
 	const [searchFriend,setSearchFriend]=useState('');
 	const [friends,setFriends]=useState([]);
 	const [filterFriends,setFilterFriends]=useState([]);
-	const[socketConnected,setSocketConnected]=useState([]);
     const [loggedInUsers,setLoggedInUsers]=useState([]);
 
 	const key=window.location.search;
@@ -32,7 +31,7 @@ const ConnectedFriends = () => {
 
 		socket=io(ENDPOINT);
 		socket.emit('setup',userid);
-		// socket.on('connected',()=>setSocketConnected(true));
+		// socket.on('connected',()=>setIsEnded(true));
         
 	  },[userid])
     
@@ -97,8 +96,16 @@ const ConnectedFriends = () => {
 	  }
 
 	  const handleVideo=(frn)=>{
+		
+		// console.log('frn:',frn);
 		dispatch(setActiveComponent('videoCall'));
 		dispatch(setActiveFriend(frn));
+
+		socket.emit("sendCall", {
+			userId: userid === frn.user[0]._id ? frn.user[1]._id: frn.user[0]._id,
+			frnInfo:frn
+		  });
+		// socket.emit("sendCall",frn);
 	  }
 
   	return (

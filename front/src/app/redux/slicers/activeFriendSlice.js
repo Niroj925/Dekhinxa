@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState={
     activeFriend:null,
-    activeComponent:'friends'
+    activeComponent:'friends',
+    roomId:''
 }
 
 export const activeFriendSlice=createSlice({
@@ -17,6 +18,9 @@ export const activeFriendSlice=createSlice({
         setActiveComponent:(state,action)=>{
             state.activeComponent=action.payload;
         },
+        setRoomId:(state,action)=>{
+           state.roomId=action.payload; 
+        },
         logout: (state) => {
             state.activeFriend = null;
             state.activeComponent = 'friends';
@@ -24,6 +28,6 @@ export const activeFriendSlice=createSlice({
     }
 });
 
-export const {setActiveFriend,setActiveComponent,logout}=activeFriendSlice.actions;
+export const {setActiveFriend,setActiveComponent,setRoomId,logout}=activeFriendSlice.actions;
 
 export default activeFriendSlice.reducer;
