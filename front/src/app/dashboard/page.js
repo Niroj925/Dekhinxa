@@ -11,7 +11,6 @@ import {RiFeedbackFill} from 'react-icons/ri';
 import api from '../../../component/api/api.js';
 import Friends from '../../../component/friends/friends';
 import Chatbox from '../../../component/chatbox/chat';
-import VideoCall from '../../../component/video/video';
 import AddFriend from '../../../component/addfriend/addfriend';
 import Pr from '../../../component/pr/pr';
 import {useSelector,useDispatch} from 'react-redux';
@@ -45,8 +44,6 @@ const Dashboard = () => {
     const activeComponent=useSelector((state)=>state.friend.activeComponent);
 
 
-	// console.log(activeFriend);
-	// console.log(ActiveComponent);
 	console.log(activeComponent);
 
 
