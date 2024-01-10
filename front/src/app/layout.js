@@ -1,6 +1,6 @@
 // layout.js
 import './globals.css'
-import { Providers } from "../app/redux/provider";
+import { Providers } from "./redux/provider";
 
 
 export const metadata = {

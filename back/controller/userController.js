@@ -40,7 +40,7 @@ async googleauth(req, res) {
   // console.log('Generated Token:', token);
 
   // const successRedirectUrl= `https://fonehub.netlify.app/product/buy?userid=${userId}`
-  const successRedirectUrl= `http://localhost:3000/dashboard?userid=${userId}`
+  const successRedirectUrl= `https://dekhinxa.vercel.app/dashboard?userid=${userId}`
 
    // Set the token as an HTTP-only cookie
   //  res.cookie('token', token, { httpOnly: true });
