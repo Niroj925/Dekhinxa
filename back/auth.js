@@ -10,7 +10,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:8080/user/auth/google/callback',
+    callbackURL: 'https://dekhinxabackend.onrender.com/user/auth/google/callback',
     passReqToCallback: true,
   },
   async function (request, accessToken, refreshToken, profile, done) {
