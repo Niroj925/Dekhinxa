@@ -72,8 +72,6 @@ let users = [];
  let loginUsers=[];
 
 io.on('connection',(socket)=>{
-    // console.log(`user connected to socket.io`);
-
     //listen event
      socket.on('setup',(userData)=>{
       //  console.log(userData);
