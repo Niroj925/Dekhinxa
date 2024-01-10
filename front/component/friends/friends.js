@@ -1,12 +1,12 @@
 'use client'
 import styles from './index.module.css';
-import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
+import {BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
 import {FaUserAlt,FaSignOutAlt,FaSearch} from 'react-icons/fa'
 import { useState,useEffect } from 'react';
 import { getCookie } from '../function/function';
 import { useRouter } from 'next/navigation';
 import api from '../api/api.js';
-import {useSelector,useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { setActiveComponent,setActiveFriend } from '@/app/redux/slicers/activeFriendSlice';
 import io from 'socket.io-client';
 

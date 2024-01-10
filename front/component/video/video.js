@@ -1,8 +1,8 @@
 'use client'
 import styles from './index.module.css';
-import {BsInfoCircle,BsPeopleFill,BsFillChatLeftTextFill,BsCameraVideoFill} from 'react-icons/bs'
-import {FaUserAlt,FaSignOutAlt} from 'react-icons/fa'
-import { useState,useEffect } from 'react';
+import {BsCameraVideoFill} from 'react-icons/bs'
+import {FaUserAlt} from 'react-icons/fa'
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import io from "socket.io-client";
 
